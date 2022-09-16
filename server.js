@@ -1,40 +1,22 @@
+// server.js
+// where your node app starts
 
-const express = require('express');
-const app = express()
-const Contenedora = require(__dirname+'index.js')
-const productos = new Contenedora(__dirname+"articulos.txt")
-const PORT = process.env.PORT
-const server = app.listen(PORT,()=>{
-    console.log("Listen servise ..."+server.address().port)
-})
+// init project
+const express = require("express");
+const app = express();
 
-app.get('/productos',(req,res)=>{
-    res.send(productos.getAll())
-})
-app.get('/productoRandom',(req,res)=>{
-    res.send(productos.getByIdRandom())
-})
-server.on("Error",()=>{
-    console.log('Error')
-})
+// we've started you off with Express,
+// but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
+// http://expressjs.com/en/starter/static-files.html
+app.use(express.static("public"));
 
+// http://expressjs.com/en/starter/basic-routing.html
+app.get("/", function(request, response) {
+  response.sendFile(__dirname + "/views/index.html");
+});
 
-const express = require('express');
-const app = express()
-const Contenedora = require('./index.js')
-const productos = new Contenedora("./articulos.txt")
-const PORT = process.env.PORT
-const server = app.listen(PORT,()=>{
-    console.log("Listen servise ..."+server.address().port)
-})
-
-app.get('/productos',(req,res)=>{
-    res.send(productos.getAll())
-})
-app.get('/productoRandom',(req,res)=>{
-    res.send(productos.getByIdRandom())
-})
-server.on("Error",()=>{
-    console.log('Error')
-})
+// listen for requests :)
+const listener = app.listen(process.env.PORT, function() {
+  console.log("Your app is listening on port " + listener.address().port);
+});
