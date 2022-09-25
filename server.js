@@ -1,10 +1,11 @@
 // server.js
 const express = require("express");
-const datefns= require ("date-fns")
+const luxon= require ("luxon")
+const { DateTime } = require("luxon");
 
 
 import { format, formatDistance, formatRelative, subDays } from 'date-fns'
-
+let ahora = DateTime.now().setZone('America/Argentina/Buenos_Aires').minus({weeks:1}).endOf('day').toISO();
 
 const app = express();
 const path = require("path");
