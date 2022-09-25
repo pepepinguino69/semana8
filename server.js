@@ -13,6 +13,22 @@ const VIEWS = path.join(__dirname, "views");
 
 app.get("/productos", (request, response) => {myInstance.getAll().then((data) => response.send(data))});
 
+
+
+
+
+app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.getAll().then((data) => response.send(data))});
+  
+app.get('/hello/:name', (req, res) => {
+  const { name } = req.params;
+  res.send(`Hello ${name}`);
+});
+                                         
+                                         
+                                         
+                                         
+
+
 app.get("/", (request, response) => {
   
 
