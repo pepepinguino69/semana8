@@ -5,7 +5,7 @@ class Contenedor {
     constructor(path) {
         this.path = path;
     }
-    const save = async (newObject) => {
+    async function(newObject) {
         const data = JSON.parse(await fs.readFile(this.path, "utf8"));
         if (data != "") {
             newObject.id = Math.max(...data.map((o) => o.id)) + 1;
@@ -17,7 +17,7 @@ class Contenedor {
         return await newObject.id;
     };
 
-    const getAll = async () => {
+    function getAl(){
         const data = JSON.parse(
             await fs.readFile(this.path, "utf8", (err, data) => {
                 if (err) {

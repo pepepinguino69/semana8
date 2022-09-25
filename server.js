@@ -2,7 +2,7 @@
 const express = require("express");
 const luxon= require ("luxon")
 const { DateTime } = require("luxon");
-import {Contenedor} from './Contenedor.js'
+//import {Contenedor} from './Contenedor.js'
 
 
 let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long', day: 'numeric',year:'numeric',hour:'numeric',minute:'numeric' })
