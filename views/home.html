@@ -55,9 +55,12 @@
 			    </div>
 	    	</div>
         <script> 
+          const luxon= Noderequire ("luxon")
+          const { DateTime } = require("luxon");
           const hora=document.querySelector("h1");
-              
-              hora.innerHTML=`${datos}`
+          let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long', day: 'numeric',year:'numeric',hour:'numeric',minute:'numeric' })
+          console.log(datos)
+          hora.innerHTML+=`${datos}`
     
     
     </script>
