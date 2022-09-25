@@ -60,7 +60,7 @@ class Contenedor {
     }
         
 
-    deleteAll = async () => {
+    const deleteAll = async () => {
         const data = [];
         return await fs.writeFile(this.path, JSON.stringify(data), (err, data) => {
             if (err) {
@@ -90,7 +90,7 @@ const newObject = {
 // su funcion es poder volver a tener un set de 8 productos
 //********************************************************************* //
 
-const myInstance = new Contenedor("./productos.txt");
+//const myInstance = new Contenedor("./productos.txt");
 //console.log('mostrar id 6');
 //myInstance.getById(6).then((data) => console.log(data));
 //console.log("mostrar todos");
