@@ -2,7 +2,7 @@
 const express = require("express");
 const luxon= require ("luxon")
 const { DateTime } = require("luxon");
-const  { Contenedor } = require('./Contenedor.js').Contenedor
+const  Contenedor  = require('./Contenedor.js').Contenedor
 
 const myInstance = new Contenedor("./productos.txt");
 
@@ -11,7 +11,7 @@ const app = express();
 const path = require("path");
 const VIEWS = path.join(__dirname, "views");
 
-//app.get("/", (request, response) => {myInstance.getAll().then((data) => response.send(data));});
+app.get("/", (request, response) => {myInstance.getAll().then((data) => response.send(data));});
 
 app.get("/aboutme", (request, response) => {
   

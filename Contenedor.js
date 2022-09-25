@@ -1,11 +1,10 @@
 const { promises: fs, readFile } = require("fs");
 
-
 const Contenedor = class Contenedor {
     constructor(path) {
         this.path = path;}
     
-    const save = async (newObject) => {
+    async save(newObject){
         const data = JSON.parse(await fs.readFile(this.path, "utf8"));
         if (data != "") {
             newObject.id = Math.max(...data.map((o) => o.id)) + 1;
@@ -17,7 +16,7 @@ const Contenedor = class Contenedor {
         return await newObject.id;
     };
 
-    const getAll = async () => {
+    async getAll(){
         const data = JSON.parse(
             await fs.readFile(this.path, "utf8", (err, data) => {
                 if (err) {
@@ -29,7 +28,7 @@ const Contenedor = class Contenedor {
         return data;
     };
 
-    const getById = async (id) => {
+    async getById(id){
         let found = false;
         const data = await this.getAll();
         for (let i = 0; i < data.length; i++) {
@@ -40,7 +39,7 @@ const Contenedor = class Contenedor {
         } if (!found) { console.log('el id seleccionado no existe') }
     };
 
-    const deleteById = async (id) => {
+    async deleteById(id){
         const data = JSON.parse(await fs.readFile(this.path, "utf8", (err, data) => {
             ;
             if (err) {
@@ -60,7 +59,7 @@ const Contenedor = class Contenedor {
     }
         
 
-    const deleteAll = async () => {
+    async deleteAll(){
         const data = [];
         return await fs.writeFile(this.path, JSON.stringify(data), (err, data) => {
             if (err) {
@@ -75,6 +74,12 @@ module.exports = class Contenedor{};
 //prueba = () => {
 		//console.log(this.path);
 	//};
+module.exports class Contenedor {
+
+  constructor(path){
+    this.path = path ;
+  }
+
 
 
 const newObject = {
