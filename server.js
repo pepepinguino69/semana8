@@ -11,9 +11,9 @@ const app = express();
 const path = require("path");
 const VIEWS = path.join(__dirname, "views");
 
-app.get("/", (request, response) => {myInstance.getAll().then((data) => response.send(data));});
+app.get("/productos", (request, response) => {myInstance.getAll().then((data) => response.send(data));});
 
-app.get("/aboutme", (request, response) => {
+app.get("/", (request, response) => {
   
 
   const mostrar = `<h1>Hola bienvenido a mi primer servidor ${datos}<h1>`;

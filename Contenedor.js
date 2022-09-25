@@ -74,11 +74,9 @@ module.exports = class Contenedor{};
 //prueba = () => {
 		//console.log(this.path);
 	//};
-module.exports class Contenedor {
+module.exports = {Contenedor:Contenedor} 
 
-  constructor(path){
-    this.path = path ;
-  }
+
 
 
 
