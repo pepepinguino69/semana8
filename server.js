@@ -23,7 +23,9 @@ app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.ge
 //**********************************************************************************************
 //app.use(express.json());
 //app.post('/save', (req, res) => {
-//  const { name } = req.body;                                        
+//  const { newObject} = req.body;    
+
+//************************************************************************************************
                                          
                                          
 
@@ -31,7 +33,18 @@ app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.ge
 app.get("/", (request, response) => {
   
 
-  const mostrar = `<h1>Hola bienvenido a mi primer servidor ${datos}<h1>`;
+  const mostrar = `<h1>Hola bienvenido a mi primer servidor ${datos}<h1>
+  <h2>Endpoints disponibles</h2>
+  <h3>Visualizar todos los productos : /productos</h3>
+  <h3>Visualizar productos por la id : /productos/id</h3>
+  
+  <h4>Proximamente</h4>
+  
+  <h4>POST</h4>
+  <h4>PUT</h4>
+  <h4>DELETE</h4>
+  
+  `;
   response.send(mostrar);
 });
 
