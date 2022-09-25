@@ -3,6 +3,8 @@ const express = require("express");
 const luxon= require ("luxon")
 const { DateTime } = require("luxon");
 const jwt = require('jsonwebtoken');
+//require('crypto').randomBytes(64).toString('hex')->genera el token
+const dotenv = require('dotenv');
 const  Contenedor  = require('./Contenedor.js').Contenedor
 
 const myInstance = new Contenedor("./productos.txt");
