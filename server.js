@@ -13,13 +13,13 @@ const VIEWS = path.join(__dirname, "views");
 
 app.get("/productos", (req, res) => {myInstance.getAll().then((data) => res.send(data))});
 
-app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.json(JSON.stringify(data)))});
+app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.json(data))});
+app.get("/index", (req, res) => {myInstance.getAll().then((data) => res.send(data))});
 
 
 
 
-
-app.get('/productosRandom', (req, res) =>myInstance.getById(-1).then((data) => res.send(data)));
+app.get('/productoRandom', (req, res) =>myInstance.getById(-1).then((data) => res.send(data)));
 app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.send(data))});
 app.get('/json/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
   
@@ -41,7 +41,11 @@ app.get("/", (request, response) => {
   <h2>Endpoints disponibles</h2>
   <h3>Visualizar todos los productos : /productos</h3>
   <h3>Visualizar productos por la id : /productos/id</h3>
-  <h3>Descarga via API de  productos : /json/ productos/id</h3>
+  <h3>Visualizar productos randomly  : /productoRandom</h3>
+  <h3>Descarga via API de  productos : /json/productos</h3>
+  <h3>Descarga via API de  productos : /json/productos/id</h3>
+  
+  <h5>Evolucion de las principales criptomonedas: /index.html</h5>
     
   
   <h4>Proximamente</h4>
