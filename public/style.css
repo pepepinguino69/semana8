@@ -54,3 +54,5 @@ footer {
   padding-top: 1.5em;
   border-top: 1px solid lightgrey;
 }
+
+div{display:flex;justify-content:space-around}
