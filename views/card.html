@@ -45,37 +45,15 @@
     </div>
 
   <script>
-    //const  Contenedor=  import('./../Contenedor.js')
-    //const myInstance = new Contenedor("./productos.txt");
-    async function getAll(){
-        const data = JSON.parse(
-            await fs.readFile("./../productos.txt", "utf8", (err, data) => {
-                if (err) {
-                    console.log(err);
-                }
-            }
-            )
-        );
-        return data;
-    };
-
-    async function getById(id){
-        let found = false;
-        const data = await this.getAll();
-        if(id==-1){id = Math.floor(Math.random()*data.length)}
-        for (let i = 0; i < data.length; i++) {
-            if (data[i].id == id) {
-                found = true
-                return data[i];
-            }
-        } if (!found) { console.log('el id seleccionado no existe') }
-    };
-
-    const productoId= document.querySelector('#id');
-    getById(-1).then(data => alert(data.ID))
-    //productoId.innerHTML=getById(-1)
-  
-  
+    productoId=document.querySelector("#id")
+    productoTitulo=document.querySelector("#titulo")
+    productoPrecio=document.querySelector("#precio")
+    productoId.innerHTML="1"
+    productoTitulo.innerHTML="Escuadra"
+    productoPrecio.innerHTML="99.45"
+    
+    
+    
   </script>
 </body>
 
