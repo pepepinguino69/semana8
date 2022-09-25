@@ -1,11 +1,12 @@
 const { promises: fs, readFile } = require("fs");
 
+
 class Contenedor {
     constructor(path) {
         this.path = path;
     }
 
-    let save = async (newObject) => {
+    const save = async (newObject) => {
         const data = JSON.parse(await fs.readFile(this.path, "utf8"));
         if (data != "") {
             newObject.id = Math.max(...data.map((o) => o.id)) + 1;
@@ -17,7 +18,7 @@ class Contenedor {
         return await newObject.id;
     };
 
-    getAll = async () => {
+    const getAll = async () => {
         const data = JSON.parse(
             await fs.readFile(this.path, "utf8", (err, data) => {
                 if (err) {
@@ -29,7 +30,7 @@ class Contenedor {
         return data;
     };
 
-    getById = async (id) => {
+    const getById = async (id) => {
         let found = false;
         const data = await this.getAll();
         for (let i = 0; i < data.length; i++) {
@@ -40,7 +41,7 @@ class Contenedor {
         } if (!found) { console.log('el id seleccionado no existe') }
     };
 
-    deleteById = async (id) => {
+    const deleteById = async (id) => {
         const data = JSON.parse(await fs.readFile(this.path, "utf8", (err, data) => {
             ;
             if (err) {
@@ -70,9 +71,9 @@ class Contenedor {
     }
 }	
 
-prueba = () => {
-		console.log(this.path);
-	};
+//prueba = () => {
+		//console.log(this.path);
+	//};
 
 
 newObject = {
@@ -106,3 +107,4 @@ const myInstance = new Contenedor("./productos.txt");
 //myInstance.deleteAll()
 //myInstance.save(newObject).then((data) =>
 //    console.log(`elproducto fue creado con el id ${data}`));
+
