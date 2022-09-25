@@ -45,10 +45,10 @@
     </div>
 
   <script>
-    const  {Contenedor}  = import('../Contenedor.js').Contenedor
-    //const myInstance = new Contenedor("../productos.txt");
+    const  Contenedor=  import('./../Contenedor.js').Contenedor
+    //const myInstance = new Contenedor("./../productos.txt");
     const productoId= document.querySelector('#id')
-    productoId.innerHTML="ariel"
+    alert(Contenedor.getById(-1))
   
   
   </script>
