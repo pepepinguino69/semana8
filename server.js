@@ -36,7 +36,7 @@ app.get('/productoRandom', (req, res) =>myInstance.getById(-1).then((data) => re
 app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then(data => res.send(`<div class='card'>'<h3>${data.id}</h3><h3>${data.title}</h3><h3>${data.price}</h3><img src="${data.url}"></div>`))})
 app.get('/json/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
 app.use(express.static('public'));
-  
+app.get("/signup", (req, res) => res.sendFile(__dirname + '/views/signup.html'))
 
 app.get("/", (request, response) => {
   
