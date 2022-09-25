@@ -19,6 +19,7 @@ process.env.TOKEN_SECRET;
 function generateAccessToken(username) {
   return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
 }
+app.use(express.static('public'));
 
 let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long', day: 'numeric',year:'numeric',hour:'numeric',minute:'numeric' })
 const app = express();
