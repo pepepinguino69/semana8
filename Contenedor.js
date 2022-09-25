@@ -4,8 +4,8 @@ const { promises: fs, readFile } = require("fs");
 class Contenedor {
     constructor(path) {
         this.path = path;
-    }
-    async function(newObject) {
+    
+    const save = async (newObject) => {
         const data = JSON.parse(await fs.readFile(this.path, "utf8"));
         if (data != "") {
             newObject.id = Math.max(...data.map((o) => o.id)) + 1;
@@ -17,7 +17,7 @@ class Contenedor {
         return await newObject.id;
     };
 
-    function getAl(){
+    const getAll = async () => {
         const data = JSON.parse(
             await fs.readFile(this.path, "utf8", (err, data) => {
                 if (err) {
@@ -69,14 +69,15 @@ class Contenedor {
         })
     }
 }	
+}
 
-export class Contenedor{};
+module.exports = class Contenedor{};
 //prueba = () => {
 		//console.log(this.path);
 	//};
 
 
-newObject = {
+const newObject = {
 	title: "album del mundia",
 	price: 198450,
 	url: "www.musimundo.com",
