@@ -32,7 +32,6 @@ app.get("/productos", (req, res) => {myInstance.getAll().then((data)=>{data.forE
 app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.json(data))});
 app.get("/index", (req, res) => res.sendFile(__dirname + '/views/index.html'))
 app.get("/signup", (req, res) => res.sendFile(__dirname + '/views/signup.html'))
-app.get("/login", (req, res) => res.sendFile(__dirname + '/views/login.html'))
 app.get('/productoRandom', (req, res) =>myInstance.getById(-1).then((data) => res.send(`<h3>${data.id}</h3><h3>${data.title}</h3><h3>${data.price}</h3><img src="${data.url}">`)));
 app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then(data => res.send(`<div class='card'>'<h3>${data.id}</h3><h3>${data.title}</h3><h3>${data.price}</h3><img src="${data.url}"></div>`))})
 app.get('/json/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
