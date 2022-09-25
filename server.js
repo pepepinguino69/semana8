@@ -2,6 +2,7 @@
 const express = require("express");
 const luxon= require ("luxon")
 const { DateTime } = require("luxon");
+const jwt = require('jsonwebtoken');
 const  Contenedor  = require('./Contenedor.js').Contenedor
 
 const myInstance = new Contenedor("./productos.txt");
