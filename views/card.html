@@ -31,20 +31,24 @@
   <div class="container">
       <div class="form-header">
         <h2>Mi primer API</h2>
-        <p class="rounded">Login</p>
-      </div>
-
+        <p id="id" class="rounded"></p>
+        <p id="titulo" class="rounded"></p>
+        <p id="precio" class="rounded"></p>
+        
   
 
 
     <div class="ingresarA">
       <a href="https://important-glossy-tempo.glitch.me/signup">¿No tienes una cuenta? Regístrate aquí</a>
     </div>
+    </div>
+    </div>
 
   <script>
-    const  Contenedor  = require('../Contenedor.js').Contenedor
-    const myInstance = new Contenedor("../productos.txt");
-    const producto= document.querySelector()
+    const  {Contenedor}  = import('../Contenedor.js').Contenedor
+    //const myInstance = new Contenedor("../productos.txt");
+    const productoId= document.querySelector('#id')
+    productoId.innerHTML="ariel"
   
   
   </script>
