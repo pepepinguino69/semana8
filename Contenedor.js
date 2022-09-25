@@ -25,7 +25,7 @@ const Contenedor = class Contenedor {
             }
             )
         );
-        return data;
+        return data.map(e=>Object.values(e));
     };
 
     async getById(id){

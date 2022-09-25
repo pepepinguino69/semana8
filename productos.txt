@@ -1,9 +1,1 @@
-[
-{"id":1,"title":"escuadra","price":99.45,"url":"www.miservidor.com"},
-{id:2,"title":"regla","price":9.45,"url":"www.miservidor.com"},
-{id:3,"title":"transportador","price":9999.45,"url":"www.miservidor.com"},
-{id:4,"title":"compas","price":0.99,"url":"www.miservidor.com"},
-{id:6,"title":"mouse","price":88.88,"url":"www.miservidor.com"},
-{id:7,"title":"teclado","price":888.88,"url":"www.miservidor.com"},
-{id:8,"title":"monitor","price":777.45,"url":"www.miservidor.com"}
-]
+[{"id":1,"title":"escuadra","price":99.45,"url":"www.miservidor.com"},{"id":2,"title":"regla","price":9.45,"url":"www.miservidor.com"},{"id":3,"title":"transportador","price":9999.45,"url":"www.miservidor.com"},{"id":4,"title":"compas","price":0.99,"url":"www.miservidor.com"},{"id":6,"title":"mouse","price":88.88,"url":"www.miservidor.com"},{"id":7,"title":"teclado","price":888.88,"url":"www.miservidor.com"},{"id":8,"title":"monitor","price":777.45,"url":"www.miservidor.com"}]
