@@ -2,7 +2,9 @@
 const express = require("express");
 const moment = require("moment");
 
-moment.tz.setDefault("America/Buenos_Aires");
+
+moment.tz.setDefault("America/New_York")
+
 
 const app = express();
 const path = require("path");
@@ -15,7 +17,9 @@ app.get("/", (request, response) => {
 });
 
 app.get("/aboutme", (request, response) => {
-  const datos = 23;
+  
+  const datos=moment().format("hh:mm:ss")
+
   const mostrar = `<h1>Hola bienvenido a mi primer servidor${datos}<h1>`;
   response.send(mostrar);
 });
