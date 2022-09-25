@@ -10,6 +10,12 @@ body {
 
 }
 
+h2{margin:5rem}
+
+h3{margin:1rem}
+
+#epcontainer{display:flex;justifiy-content:space-around;align-items:center}
+
 header {
     background-color: var(--negro);
     height: 5rem;
