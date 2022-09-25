@@ -1,5 +1,5 @@
 https://www.digitalocean.com/community/tutorials/nodejs-jwt-expressjs
-
+https://www.digitalocean.com/community/tutorials/api-authentication-with-json-web-tokensjwt-and-passport
 //**********************************************************************************************
 //app.use(express.json());
 //app.post('/save', (req, res) => {
