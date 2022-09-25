@@ -16,6 +16,8 @@ h3{margin:1rem}
 
 #epcontainer{display:flex;justifiy-content:space-around;align-items:center}
 
+#soon{margin:3rem 0rem;display:flex;justifiy-content:space-between;align-items:center}
+
 header {
     background-color: var(--negro);
     height: 5rem;
