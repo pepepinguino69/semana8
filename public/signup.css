@@ -99,7 +99,7 @@ form button:hover{
 }
 
 .ingresarA a {
-    color: var(--lila);
+    color: var(--laranja);
 }
 .ingresarA a:hover{
     color: var(--azul);

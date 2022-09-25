@@ -19,7 +19,7 @@ process.env.TOKEN_SECRET;
 function generateAccessToken(username) {
   return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
 }
-app.use(express.static('public'));
+//app.use(express.static('public'));
 
 let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long', day: 'numeric',year:'numeric',hour:'numeric',minute:'numeric' })
 const app = express();
@@ -34,7 +34,7 @@ app.get("/signup", (req, res) => res.sendFile(__dirname + '/views/signup.html'))
 app.get('/productoRandom', (req, res) =>myInstance.getById(-1).then((data) => res.send(`<h3>${data.id}</h3><h3>${data.title}</h3><h3>${data.price}</h3><img src="${data.url}">`)));
 app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then(data => res.send(`<div class='card'>'<h3>${data.id}</h3><h3>${data.title}</h3><h3>${data.price}</h3><img src="${data.url}"></div>`))})
 app.get('/json/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
-  
+app.use(express.static('public'));
   
 
 app.get("/", (request, response) => {
@@ -47,6 +47,8 @@ app.get("/", (request, response) => {
   <h3>Visualizar productos randomly  : /productoRandom</h3>
   <h3>Descarga via API de  productos : /json/productos</h3>
   <h3>Descarga via API de  productos : /json/productos/id</h3>
+  <h3>signup (solo HTML)</h3>
+  
   
   <h5>Evolucion de las principales criptomonedas: /index.html</h5>
     
