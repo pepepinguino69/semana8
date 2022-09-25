@@ -10,8 +10,8 @@ let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleStr
 const app = express();
 const path = require("path");
 const VIEWS = path.join(__dirname, "views");
-
-app.get("/productos", (req, res) => {myInstance.getAll().then((data) => res.send(data.forEach(e)=>``))});
+let acum=""
+app.get("/productos", (req, res) => {myInstance.getAll().then((data)=>{data.forEach(e=>acum+=`<h3>${e.id}-${e.title}----${e.price}---${e.url}`);res.send(acum)})});
 
 app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.json(data))});
 app.get("/index", (req, res) => res.sendFile(__dirname + '/views/index.html'))
