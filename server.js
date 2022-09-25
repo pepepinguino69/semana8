@@ -11,9 +11,9 @@ const app = express();
 const path = require("path");
 const VIEWS = path.join(__dirname, "views");
 
-app.get("/productos", (request, response) => {myInstance.getAll().then((data) => response.send(data))});
+app.get("/productos", (req, res) => {myInstance.getAll().then((data) => res.send(data))});
 
-app.get("/json/productos", (request, response) => {myInstance.getAll().then((data) => response.json(data))});
+app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.json(JSON.stringify(data)))});
 
 
 
@@ -41,6 +41,8 @@ app.get("/", (request, response) => {
   <h2>Endpoints disponibles</h2>
   <h3>Visualizar todos los productos : /productos</h3>
   <h3>Visualizar productos por la id : /productos/id</h3>
+  <h3>Descarga via API de  productos : /json/ productos/id</h3>
+    
   
   <h4>Proximamente</h4>
   
