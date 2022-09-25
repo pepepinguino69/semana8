@@ -31,6 +31,7 @@ const Contenedor = class Contenedor {
     async getById(id){
         let found = false;
         const data = await this.getAll();
+        if(id==-1){id = Math.floor(Math.random()*data.length)}
         for (let i = 0; i < data.length; i++) {
             if (data[i].id == id) {
                 found = true

@@ -19,7 +19,7 @@ app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.
 
 
 
-
+app.get('/productosRandom', (req, res) =>myInstance.getById(-1).then((data) => res.send(data)));
 app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.send(data))});
 app.get('/json/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
   
