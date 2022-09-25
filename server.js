@@ -36,7 +36,7 @@ app.get("/card", (req, res) => res.sendFile(__dirname + '/views/card.html'))
 app.get('/productoRandom', (req, res) =>myInstance.getById(-1).then((data) => res.send(`<h3>${data.id}</h3><h3>${data.title}</h3><h3>${data.price}</h3><img src="${data.url}">`)));
 app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then(data => res.send(`<div class='card'>'<h3>${data.id}</h3><h3>${data.title}</h3><h3>${data.price}</h3><img src="${data.url}"></div>`))})
 app.get('/json/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
-app.get('/json/productoRandom', (req, res) => {myInstance.getById(-1).then((data) => res.json(data))});
+app.get('/json/productoRandom/', (req, res) => {myInstance.getById(-1).then((data) => res.json(data))});
 app.use(express.static('public'));
 app.get("/", (req, res) => res.sendFile(__dirname + '/views/home.html'))
 
