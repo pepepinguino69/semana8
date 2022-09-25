@@ -34,43 +34,6 @@ app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.ge
 app.get('/json/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
   
   
-//**********************************************************************************************
-//app.use(express.json());
-//app.post('/save', (req, res) => {
-//  const { newObject} = req.body;    
-app.post('/api/createNewUser', (req, res) => {
-  // ...
-
-  const token = generateAccessToken({ username: req.body.username });
-  res.json(token);
-
-  // ...
-});
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers['authorization']
-  const token = authHeader && authHeader.split(' ')[1]
-
-  if (token == null) return res.sendStatus(401)
-
-  jwt.verify(token, process.env.TOKEN_SECRET as string, (err: any, user: any) => {
-    console.log(err)
-
-    if (err) return res.sendStatus(403)
-
-    req.user = user
-
-    next()
-  })
-}
-
-
-
-
-
-//************************************************************************************************
-                                         
-                                         
-
 
 app.get("/", (request, response) => {
   
