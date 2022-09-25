@@ -4,10 +4,21 @@ const luxon= require ("luxon")
 const { DateTime } = require("luxon");
 const jwt = require('jsonwebtoken');
 //require('crypto').randomBytes(64).toString('hex')->genera el token
+//guardado en el .env
 const dotenv = require('dotenv');
+
 const  Contenedor  = require('./Contenedor.js').Contenedor
 
 const myInstance = new Contenedor("./productos.txt");
+
+// get config vars
+dotenv.config();
+
+// access config var
+process.env.TOKEN_SECRET;
+function generateAccessToken(username) {
+  return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
+}
 
 let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long', day: 'numeric',year:'numeric',hour:'numeric',minute:'numeric' })
 const app = express();
@@ -18,10 +29,6 @@ app.get("/productos", (req, res) => {myInstance.getAll().then((data)=>{data.forE
 
 app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.json(data))});
 app.get("/index", (req, res) => res.sendFile(__dirname + '/views/index.html'))
-
-
-
-
 app.get('/productoRandom', (req, res) =>myInstance.getById(-1).then((data) => res.send(`<h3>${data.id}</h3><h3>${data.title}</h3><h3>${data.price}</h3><img src="${data.url}">`)));
 app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then(data => res.send(`<div class='card'>'<h3>${data.id}</h3><h3>${data.title}</h3><h3>${data.price}</h3><img src="${data.url}"></div>`))})
 app.get('/json/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
@@ -31,6 +38,34 @@ app.get('/json/productos/:id', (req, res) => {const { id } = req.params;myInstan
 //app.use(express.json());
 //app.post('/save', (req, res) => {
 //  const { newObject} = req.body;    
+app.post('/api/createNewUser', (req, res) => {
+  // ...
+
+  const token = generateAccessToken({ username: req.body.username });
+  res.json(token);
+
+  // ...
+});
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization']
+  const token = authHeader && authHeader.split(' ')[1]
+
+  if (token == null) return res.sendStatus(401)
+
+  jwt.verify(token, process.env.TOKEN_SECRET as string, (err: any, user: any) => {
+    console.log(err)
+
+    if (err) return res.sendStatus(403)
+
+    req.user = user
+
+    next()
+  })
+}
+
+
+
+
 
 //************************************************************************************************
                                          
