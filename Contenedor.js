@@ -1,9 +1,9 @@
 const { promises: fs, readFile } = require("fs");
 
 
-class Contenedor {
+const Contenedor = class Contenedor {
     constructor(path) {
-        this.path = path;
+        this.path = path;}
     
     const save = async (newObject) => {
         const data = JSON.parse(await fs.readFile(this.path, "utf8"));
@@ -69,7 +69,7 @@ class Contenedor {
         })
     }
 }	
-}
+
 
 module.exports = class Contenedor{};
 //prueba = () => {
