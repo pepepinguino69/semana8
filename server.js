@@ -11,7 +11,7 @@ const app = express();
 const path = require("path");
 const VIEWS = path.join(__dirname, "views");
 
-app.get("/productos", (request, response) => {myInstance.getAll().then((data) => response.send(data));});
+app.get("/productos", (request, response) => {myInstance.getAll().then((data) => response.send(data))});
 
 app.get("/", (request, response) => {
   
