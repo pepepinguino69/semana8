@@ -13,11 +13,15 @@ const VIEWS = path.join(__dirname, "views");
 
 app.get("/productos", (request, response) => {myInstance.getAll().then((data) => response.send(data))});
 
+app.get("/json/productos", (request, response) => {myInstance.getAll().then((data) => response.json(data))});
+
+
 
 
 
 
 app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.send(data))});
+app.get('/json/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
   
   
 //**********************************************************************************************
