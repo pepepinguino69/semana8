@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 //guardado en el .env
 const dotenv = require('dotenv');
 
+
 const  Contenedor  = require('./Contenedor.js').Contenedor
 
 const myInstance = new Contenedor("./productos.txt");
