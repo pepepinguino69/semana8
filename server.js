@@ -17,14 +17,13 @@ app.get("/productos", (request, response) => {myInstance.getAll().then((data) =>
 
 
 
-app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.getAll().then((data) => response.send(data))});
+app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.send(data))});
   
-app.get('/hello/:name', (req, res) => {
-  const { name } = req.params;
-  res.send(`Hello ${name}`);
-});
-                                         
-                                         
+  
+//**********************************************************************************************
+//app.use(express.json());
+//app.post('/save', (req, res) => {
+//  const { name } = req.body;                                        
                                          
                                          
 
