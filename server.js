@@ -47,7 +47,7 @@ app.get("/", (request, response) => {
   <h3>Visualizar productos randomly  : /productoRandom</h3>
   <h3>Descarga via API de  productos : /json/productos</h3>
   <h3>Descarga via API de  productos : /json/productos/id</h3>
-  <h3>signup (solo HTML)</h3>
+  <h3>signup (solo HTML): /signup</h3>
   
   
   <h5>Evolucion de las principales criptomonedas: /index.html</h5>
