@@ -11,7 +11,7 @@ const app = express();
 const path = require("path");
 const VIEWS = path.join(__dirname, "views");
 let acum=""
-app.get("/productos", (req, res) => {myInstance.getAll().then((data)=>{data.forEach(e=>acum+=`<h3>${e.id}-${e.title}----${e.price}---${e.url}`);res.send(acum)})});
+app.get("/productos", (req, res) => {myInstance.getAll().then((data)=>{data.forEach(e=>acum+=`<h3>${e.id}-${e.title}----${e.price}---${e.url}</h3>`);res.send(acum)})});
 
 app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.json(data))});
 app.get("/index", (req, res) => res.sendFile(__dirname + '/views/index.html'))
@@ -19,8 +19,8 @@ app.get("/index", (req, res) => res.sendFile(__dirname + '/views/index.html'))
 
 
 
-app.get('/productoRandom', (req, res) =>myInstance.getById(-1).then((data) => res.send(data)));
-app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.send(data))});
+app.get('/productoRandom', (req, res) =>myInstance.getById(-1).then((data) => res.send(`<h3>${data.id}</h3><h3>${data.title}</h3><h3>${data.price}</h3><h3>${data.url}</h3>`)));
+app.get('/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then(data => res.send(`<h3>${data.id}-${data.title}----${data.price}---${data.url}</h3>`))})
 app.get('/json/productos/:id', (req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
   
   
