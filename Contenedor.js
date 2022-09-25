@@ -5,7 +5,7 @@ class Contenedor {
         this.path = path;
     }
 
-    save = async (newObject) => {
+    let save = async (newObject) => {
         const data = JSON.parse(await fs.readFile(this.path, "utf8"));
         if (data != "") {
             newObject.id = Math.max(...data.map((o) => o.id)) + 1;

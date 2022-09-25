@@ -1,10 +1,11 @@
 // server.js
 const express = require("express");
+const moment = require ('moment').format('DD/MM/YYYY');
 
 const app = express()
 const path = require("path");
 const VIEWS = path.join(__dirname, "views");
-app.get("/", (request, response) => { response.send("hola estoy conectado a una api con get") })
+app.get("/", (request, response) => { response.send("hola estoy conectado a una api con getc"+moment()) })
 
 app.get("/aboutme", (request, response) => {
    const datos = 23
