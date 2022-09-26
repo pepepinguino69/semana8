@@ -5,14 +5,15 @@ html
   head
     title= title 
   body
+    h1 = ''
     .container2
       each datum in data
         .card
           imgholder   
             img(src=datum.url)
-          h1= datum.id
-          h1= datum.title
-          h1= datum.price
+          h2= datum.id
+          h2= datum.title
+          h2= datum.price
      
       
     
