@@ -41,6 +41,14 @@ app.get("/productos", (req, res) =>
 app.get("/productoRandom", (req, res) => 
         myInstance.getById(-1).then((data)=>
               res.render('card2',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'})))
+
+app.get(/productoRandom/:xx', (req, res) => 
+        myInstance.getById(-1).then((data)=>
+              res.render('card2',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'})))
+
+
+
+
 app.get("/json/productos",(req, res) => {myInstance.getAll().then((data) => res.json(data))});
 app.get("/index", (req, res) => res.sendFile(__dirname + '/views/index.html'))
 app.get("/signup", (req, res) => res.sendFile(__dirname + '/views/signup.html'))
