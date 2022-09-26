@@ -24,7 +24,7 @@ function generateAccessToken(username) {
   return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
 }
 
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long', day: 'numeric',year:'numeric',hour:'numeric',minute:'numeric' })
@@ -38,9 +38,6 @@ app.use(express.static('public'))
 let acum=""
 app.get("/", (req, res) => res.sendFile(__dirname + '/views/home.html'))
 
-//app.get('/productos', (req, res) => {myInstance.getAll().then((data)=>{data.forEach(e=>acum+=`<img src="${e.url}"><h3>${e.id}-${e.title}----${e.price}---</h3>`);res.send(acum)})});
-
-
 app.get('/productoRandom', (req, res) => {
         myInstance.getById(-1).then((data)=>
               res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
@@ -51,7 +48,21 @@ app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.
 app.get('/index.html', (req, res) => res.sendFile(__dirname + '/views/index.html'))
 app.get('/index', (req, res) => res.sendFile(__dirname + '/views/index.html'))
 app.get('/signup.html', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
-app.get('/addProduct.html', (req, res) => res.sendFile(__dirname + '/views/addProduct.html'))
+
+app.use(upload.array()); 
+app.use(express.static('public'));
+
+app.post('/form', function(req, res){
+   console.log(req.body);
+   res.send("recieved your request!");
+});
+
+app.get('/form', function(req, res){
+   res.render('form');
+});
+
+
+
 app.get('/addProduct', (req, res) => res.sendFile(__dirname + '/views/addProduct.html'))
 app.get('/signup', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
 app.get('/json/producto/:id',(req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
