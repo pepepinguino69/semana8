@@ -29,7 +29,7 @@ const app = express();
 const path = require("path");
 const VIEWS = path.join(__dirname, "views");
 app.set('view engine', 'pug')
-app.get('/pug',async (req, res) => await myInstance.getById(-1).then((data)=>res.render('index2',{id:data.id,price:data.price,title:data.title,img:data.url})))
+app.get('/pug',async (req, res) => await myInstance.getById(-1).then((data)=>res.render('index2',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'})))
 
 
 let acum=""

@@ -1,91 +1,103 @@
-@import url('./globalStyles.css');
+@import url("./globalStyles.css");
 
 body {
-    background-image: url('../assets/commodore-64.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    /* capa sobre fondo */
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .6);
-
+  background-image: url("../assets/commodore-64.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  /* capa sobre fondo */
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
 }
 
-
-:root{
-        --white: hsl(0, 0%, 100%);
-        --gray: hsl(212, 45%, 89%);
-        --Gblue: hsl(220, 15%, 55%);
-        --Dblue: hsl(218, 44%, 22%);
-    
-    }
-p{  
+:root {
+  --white: hsl(0, 0%, 100%);
+  --gray: hsl(212, 45%, 89%);
+  --Gblue: hsl(220, 15%, 55%);
+  --Dblue: hsl(218, 44%, 22%);
+}
+p {
   font-size: 15px;
-  margin:0% 16%;
+  margin: 0% 16%;
   text-align: center;
   padding-top: 10px;
   color: var(--Gblue);
 }
 
-body{
-  font-family: 'Outfit', sans-serif;
+body {
+  font-family: "Outfit", sans-serif;
   background-color: var(--gray);
 
-  color: var(--Dblue );
+  color: var(--Dblue);
 }
-    
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
 
-img{border-radius: 10px;}
-.flex{
-      display:flex;
-      justify-content: space-around;
-      align-content: center;
-    }
-    
-.card{
-      
-      width:375px;
-      height: 530px;
-      background-color: var(--white);
-      border-radius: 15px;
-      border-style: solid;
-      border-width: 1px;
-      border-color: var(--white)}
-    
-      h1{
-      font-size: 140%;
-      text-align: center;
-      margin:2% 14%;
-    
-    }
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
 
-    .imgholder{
-      height:66%;
-      width: auto;
-      padding: 4% 0%;
-    
-    
-    }
+img {
+  border-radius: 10px;
+}
 
-    .container
-    {display:flex;
-      justify-content: center;
-      align-content: center;
-    padding-top: 2%;}
-  
+.card {
+  width: 375px;
+  height: 530px;
+  background-color: var(--white);
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--white);
+}
+
+h1 {
+  font-size: 140%;
+  text-align: center;
+  margin: 2% 14%;
+}
+
+h2 {
+  font-size: 100%;
+  text-align: center;
+  margin: 2% 14%;
+}
+
+.imgholder {
+  height: 66%;
+  width: auto;
+  padding: 4% 0%;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 2%;
+}
 
 .ingresarA {
-    padding: 1rem 0;
-    text-align: center;
+  padding: 1rem 0;
+  text-align: center;
 }
 
-a{width:20rem;border:1px solid black;backgroud-color:white;text-decoration:none;border-radius:15px;padding:.4rem 2rem;}
-
- a {
-    color: var(--laranja);
+a {
+  width: 20rem;
+  border: 1px solid black;
+  backgroud-color: white;
+  text-decoration: none;
+  border-radius: 15px;
+  padding: 0.4rem 2rem;
 }
-a:hover{
-    color: var(--azul);background-color:var(--laranja);
-}
 
+a {
+  color: var(--laranja);
+}
+a:hover {
+  color: var(--azul);
+  background-color: var(--laranja);
+}
