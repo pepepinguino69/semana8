@@ -46,7 +46,7 @@ img {
 .card {
   width: 375px;
   height: 530px;
-  background-color: var(--white);
+  background-color: var(--grey);
   border-radius: 15px;
   border-style: solid;
   border-width: 1px;
