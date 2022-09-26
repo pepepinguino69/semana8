@@ -33,7 +33,7 @@ app.set('view engine', 'pug')
 
 let acum=""
 app.get("/", (req, res) => res.sendFile(__dirname + '/views/home.html'))
-app.get('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.getById(xx).then((data) => res.render('card2',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
+app.get('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.getById(xx).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 
 app.get('/productos', (req, res) => 
         {myInstance.getAll().then((data)=>
