@@ -19,7 +19,7 @@ h3{margin:1.5rem;background-color:black;border-radius:15px;padding:.4rem 2rem;bo
 
 .epcontainer{display:flex;justify-content:space-between;align-items:center}
 
-#soon{margin:3rem 2rem;display:flex;justify-content:space-between;width:95vw}
+#soon{margin:3rem 2rem;display:flex;justify-content:space-between;width:95vw;border: 1px white solid;border-radius:15px;background-color:black}
 
 header {
     background-color: var(--negro);
