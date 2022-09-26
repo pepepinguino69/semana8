@@ -30,7 +30,7 @@ const path = require("path");
 const VIEWS = path.join(__dirname, "views");
 app.set('view engine', 'pug')
 app.get('/productoRandom',async (req, res) => await myInstance.getById(-1).then((data)=>res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'})))
-app.get('/productos/:id', async (req, res) => {const { id } = req.params;await myInstance.getById(id).then((data)=>res.render('card2',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
+app.get('/productos/:id', async (req, res) => {const { id } = req.params;await myInstance.getById(id).then((data)=>res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 
 
 let acum=""

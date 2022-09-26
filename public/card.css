@@ -40,7 +40,6 @@ body {
 
 img {
   border-radius: 10px;
-  
 }
 
 .card {
@@ -51,6 +50,7 @@ img {
   border-style: solid;
   border-width: 1px;
   border-color: var(--white);
+  background-color: hsl(228, 45%, 44%);
 }
 
 h1 {
