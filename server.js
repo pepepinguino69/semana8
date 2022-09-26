@@ -42,7 +42,7 @@ app.get('/productos', (req, res) =>
 
 app.get('/productoRandom', (req, res) => {
         myInstance.getById(-1).then((data)=>
-              res.render('card2',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
+              res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 
 
 app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.json(data))});
