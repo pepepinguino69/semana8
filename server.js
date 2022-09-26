@@ -53,7 +53,7 @@ app.use(express.static('public'));
 
 app.post('/newProduct/', function(req, res){
    myInstance.save(req.body)    .then((data) => res.send(`elproducto fue creado con el id ${data}`));setTimeout(
-app.get(myInstance.getById(req.body.id).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'})))
+app.get('/producto/:', (req, res) => {const { xx } = req.params;myInstance.getById(xx).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 ,5000)});
 
 
