@@ -29,8 +29,7 @@ const app = express();
 const path = require("path");
 const VIEWS = path.join(__dirname, "views");
 app.set('view engine', 'pug')
-app.get('/pug',async (req, res)=>{await myInstance.getById(-1);res.render('index2',{message: a.then((data) => res.json(data))})
-})
+app.get('/pug',async (req, res) => await myInstance.getById(-1).then((data)=>res.render('index2',{message:data.id})))
 
 
 let acum=""
