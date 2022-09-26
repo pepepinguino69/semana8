@@ -1,12 +1,16 @@
 @import url("./globalStyles.css");
 
 body {
-  background-image: url("../assets/commodore-64.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   /* capa sobre fondo */
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+  font-family: "Outfit", sans-serif;
+  background-color: var(--gray);
+
+  color: var(--Dblue);
+
 }
 
 :root {
@@ -23,20 +27,8 @@ p {
   color: var(--Gblue);
 }
 
-body {
-  font-family: "Outfit", sans-serif;
-  background-color: var(--gray);
 
-  color: var(--Dblue);
-}
 
-.attribution {
-  font-size: 11px;
-  text-align: center;
-}
-.attribution a {
-  color: hsl(228, 45%, 44%);
-}
 
 img {
   border-radius: 10px;
@@ -50,7 +42,7 @@ img {
   border-style: solid;
   border-width: 1px;
   border-color: var(--white);
-  background-color: hsl(228, 45%, 44%);
+  background-color: yellow;
 }
 
 h1 {
@@ -89,16 +81,22 @@ h2 {
 a {
   width: 20rem;
   border: 1px solid black;
-  backgroud-color: white;
+  background-color: white;
   text-decoration: none;
   border-radius: 15px;
   padding: 0.4rem 2rem;
-}
-
-a {
   color: var(--laranja);
 }
+
 a:hover {
   color: var(--azul);
   background-color: var(--laranja);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }
