@@ -20,7 +20,7 @@ process.env.TOKEN_SECRET;
 function generateAccessToken(username) {
   return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
 }
-//app.use(express.static('public'));
+
 
 
 
@@ -30,6 +30,7 @@ const path = require("path");
 const VIEWS = path.join(__dirname, "views");
 app.set('view engine', 'pug')
 
+app.use('/static', express.static(path.join(__dirname, 'public')))
 
 let acum=""
 app.get("/", (req, res) => res.sendFile(__dirname + '/views/home.html'))
@@ -50,7 +51,7 @@ app.get('/index', (req, res) => res.sendFile(__dirname + '/views/index.html'))
 app.get('/signup', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
 app.get('/json/producto/:id',(req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
 app.get('/json/productoRandom/', (req, res) => {myInstance.getById(-1).then((data) => res.json(data))});
-app.use(express.static('public'));
+
 
 
 app.get("/index", (request, response) => {
