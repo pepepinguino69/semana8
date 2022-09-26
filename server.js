@@ -4,8 +4,8 @@ const luxon= require ("luxon")
 const { DateTime } = require("luxon");
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
-const multer = require('multer');
-const upload = multer();
+//const multer = require('multer');
+//const upload = multer();
 //require('crypto').randomBytes(64).toString('hex')->genera el token
 //guardado en el .env
 const dotenv = require('dotenv');
@@ -24,8 +24,8 @@ function generateAccessToken(username) {
   return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
 }
 
-//app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long', day: 'numeric',year:'numeric',hour:'numeric',minute:'numeric' })
 const app = express();
@@ -49,12 +49,12 @@ app.get('/index.html', (req, res) => res.sendFile(__dirname + '/views/index.html
 app.get('/index', (req, res) => res.sendFile(__dirname + '/views/index.html'))
 app.get('/signup.html', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
 
-app.use(upload.array()); 
+//app.use(upload.array()); 
 app.use(express.static('public'));
 
 app.post('/form', function(req, res){
    console.log(req.body);
-   res.send("received your request!");
+   res.send(req.body);
 });
 
 
