@@ -14,9 +14,9 @@ h2{margin:5rem}
 
 h3{margin:1rem}
 
-#epcontainer{display:flex;justifiy-content:space-around;align-items:center}
+#epcontainer{display:flex;justify-content:space-around;align-items:center}
 
-#soon{margin:3rem 0rem;display:flex;justifiy-items:space-between;width:100vw}
+#soon{margin:3rem 2rem;display:flex;justify-content:space-around;width:100vw}
 
 header {
     background-color: var(--negro);
@@ -106,7 +106,7 @@ form button:hover{
     text-align: center;
 }
 
-a{wi}
+a{width:20rem;border:1px solid black;backgroud-color:white;text-decoration:none;border-radius:15px;padding:.4rem 2rem;}
 
 .ingresarA a {
     color: var(--laranja);
