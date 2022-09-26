@@ -14,7 +14,7 @@ h2{margin:5rem}
 
 h3{margin:1rem}
 
-#epcontainer{display:flex;justify-content:space-around;align-items:center}
+.epcontainer{display:flex;justify-content:space-around;align-items:center}
 
 #soon{margin:3rem 2rem;display:flex;justify-content:space-around;width:100vw}
 
@@ -43,7 +43,7 @@ nav img {
 }
 
 .container {
-    padding: 0 5%;
+    padding: 0 2%;
 }
 
 form {
