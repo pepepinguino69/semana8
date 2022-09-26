@@ -34,7 +34,6 @@ app.use(express.static('public'))
 
 let acum=""
 app.get("/", (req, res) => res.sendFile(__dirname + '/views/home.html'))
-app.get('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.getById(xx).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 
 app.get('/productos', (req, res) => 
         {myInstance.getAll().then((data)=>
@@ -45,6 +44,7 @@ app.get('/productoRandom', (req, res) => {
         myInstance.getById(-1).then((data)=>
               res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 
+app.get('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.getById(xx).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 
 app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.json(data))});
 app.get('/index', (req, res) => res.sendFile(__dirname + '/views/index.html'))
@@ -54,9 +54,6 @@ app.get('/json/productoRandom/', (req, res) => {myInstance.getById(-1).then((dat
 
 
 
-app.get("/index", (request, response) => {
-  response.sendFile("index.html", { root: VIEWS });
-});
 
 const port = 8080;
 app.listen(port, () => {
