@@ -54,12 +54,10 @@ app.use(express.static('public'));
 
 app.post('/form', function(req, res){
    console.log(req.body);
-   res.send("recieved your request!");
+   res.send("received your request!");
 });
 
-app.get('/form', function(req, res){
-   res.render('form');
-});
+
 
 
 
