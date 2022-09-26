@@ -15,7 +15,7 @@ body {
 
 h2{margin:2rem}
 
-h3{margin:1.5rem;background-color:black;border-radius:15px;padding:.4rem 2rem;border:1px solid white;backgroud-color:white;}
+h3{margin:1rem;background-color:black;border-radius:15px;padding:.4rem 2rem;border:1px solid white;backgroud-color:white;text-align:center}
 
 .epcontainer{display:flex;justify-content:space-between;align-items:center}
 
