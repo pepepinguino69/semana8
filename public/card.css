@@ -1,4 +1,4 @@
-@import url("./globalStyles.css");
+/*@import url("./globalStyles.css");*/
 
 body {
   background-repeat: no-repeat;
@@ -19,6 +19,7 @@ body {
   --Gblue: hsl(220, 15%, 55%);
   --Dblue: hsl(218, 44%, 22%);
 }
+
 p {
   font-size: 15px;
   margin: 0% 16%;
@@ -62,7 +63,7 @@ h2 {
   width: 300px;
   padding: 4% 0%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-content: center;
 }
 
