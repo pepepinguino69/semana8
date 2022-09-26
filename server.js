@@ -22,11 +22,18 @@ function generateAccessToken(username) {
 }
 //app.use(express.static('public'));
 
-let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long', day: 'numeric',year:'numeric',hour:'numeric',minute:'numeric' })
+
+
+//let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long', day: 'numeric',year:'numeric',hour:'numeric',minute:'numeric' })
 const app = express();
 const path = require("path");
 const VIEWS = path.join(__dirname, "views");
 app.set('view engine', 'pug')
+app.get('/pug', (req, res) => {
+  res.render('index2', { title: myInstance.getById(-1).then((data) => res.json(data)) })
+})
+
+
 let acum=""
 app.get("/productos", (req, res) => {myInstance.getAll().then((data)=>{data.forEach(e=>acum+=`<img src="${e.url}"><h3>${e.id}-${e.title}----${e.price}---</h3>`);res.send(acum)})});
 
