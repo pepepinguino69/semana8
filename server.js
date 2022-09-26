@@ -12,7 +12,7 @@ const dotenv = require('dotenv');
 
 const  Contenedor  = require('./Contenedor.js').Contenedor
 
-const myInstance = new Contenedor("./productos.txt");
+
 
 // get config vars
 dotenv.config();
@@ -33,6 +33,7 @@ const VIEWS = path.join(__dirname, "views");
 app.set('view engine', 'pug')
 
 app.use(express.static('public'))
+const myInstance = new Contenedor("productos.txt");
 
 let acum=""
 app.get("/", (req, res) => res.sendFile(__dirname + '/views/home.html'))
