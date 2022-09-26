@@ -16,7 +16,7 @@ h3{margin:1rem}
 
 #epcontainer{display:flex;justifiy-content:space-around;align-items:center}
 
-#soon{margin:3rem 0rem;display:flex;justifiy-items:space-between;}
+#soon{margin:3rem 0rem;display:flex;justifiy-items:space-between;width:100vw}
 
 header {
     background-color: var(--negro);
@@ -106,9 +106,12 @@ form button:hover{
     text-align: center;
 }
 
+a{wi}
+
 .ingresarA a {
     color: var(--laranja);
 }
 .ingresarA a:hover{
     color: var(--azul);
 }
+
