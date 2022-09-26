@@ -21,7 +21,8 @@ function generateAccessToken(username) {
   return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
 }
 
-
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long', day: 'numeric',year:'numeric',hour:'numeric',minute:'numeric' })
@@ -43,7 +44,7 @@ app.get('/productoRandom', (req, res) => {
               res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 
 app.get('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.getById(xx).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
-
+app.post('/newProduct/',(req, res) => {res.render('the_template', { name: req.body.name });
 app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.json(data))});
 app.get('/index.html', (req, res) => res.sendFile(__dirname + '/views/index.html'))
 app.get('/index', (req, res) => res.sendFile(__dirname + '/views/index.html'))
