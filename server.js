@@ -43,8 +43,8 @@ app.get('/productoRandom', (req, res) =>
               res.render('card2',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'})))
 
 
-app.get('/productoRandom/:xx', (req, res) => {const { xx } = req.params;
-        myInstance.getById(xx).then((data)=>
+app.get('/productoRandom/:id', (req, res) => {
+        myInstance.getById(req.params['id']).then((data)=>
               res.render('card2',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 
 
