@@ -43,6 +43,7 @@ img {
   border-width: 1px;
   border-color: var(--white);
   background-color: yellow;
+  margin:3 rem;
   
 }
 
@@ -100,3 +101,14 @@ a:hover {
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
+
+
+.container2 {
+  display: flex;
+  
+  flex-wrap:wrap
+  align-content: center;
+  padding-top: 2%;
+  width:70%;
+}
+
