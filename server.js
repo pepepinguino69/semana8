@@ -30,7 +30,7 @@ const path = require("path");
 const VIEWS = path.join(__dirname, "views");
 app.set('view engine', 'pug')
 
-app.use('/static', express.static(path.join(__dirname, 'public')))
+app.use(express.static('public'))
 
 let acum=""
 app.get("/", (req, res) => res.sendFile(__dirname + '/views/home.html'))
