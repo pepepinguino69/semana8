@@ -3,7 +3,6 @@ const express = require("express");
 const luxon= require ("luxon")
 const { DateTime } = require("luxon");
 const jwt = require('jsonwebtoken');
-const bodyParser = require('body-parser');
 //const multer = require('multer');
 //const upload = multer();
 //require('crypto').randomBytes(64).toString('hex')->genera el token
@@ -24,11 +23,11 @@ function generateAccessToken(username) {
   return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
 }
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 //let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long', day: 'numeric',year:'numeric',hour:'numeric',minute:'numeric' })
 const app = express();
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 const path = require("path");
 const VIEWS = path.join(__dirname, "views");
 app.set('view engine', 'pug')
@@ -52,9 +51,8 @@ app.get('/signup.html', (req, res) => res.sendFile(__dirname + '/views/signup.ht
 //app.use(upload.array()); 
 app.use(express.static('public'));
 
-app.post('/form', function(req, res){
-   console.log(req.body);
-   res.send(req.body);
+app.post('/newProduct', function(req, res){
+   myInstance.save(req.body)    .then((data) => res.send(`elproducto fue creado con el id ${data}`));
 });
 
 
