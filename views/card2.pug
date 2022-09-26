@@ -6,15 +6,14 @@ html
     title= title 
   body
     .container2
-    eachdatum
+    each datum in data
       .card
         .imgholder   
-          img(src=img)
-        h1= id
-        h1= title
-        h1= price
-      .attribution
-        p=nombre
+          img(src=datum.url)
+        h1= datum.id
+        h1= datum.title
+        h1= datum.price
+     
       
     
  
