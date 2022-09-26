@@ -108,10 +108,10 @@ form button:hover{
 
 a{width:20rem;border:1px solid black;backgroud-color:white;text-decoration:none;border-radius:15px;padding:.4rem 2rem;}
 
-.ingresarA a {
+ a {
     color: var(--laranja);
 }
-.ingresarA a:hover{
-    color: var(--azul);
+a:hover{
+    color: var(--azul);background-color:var(--laranja);
 }
 

@@ -26,6 +26,7 @@ let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleStr
 const app = express();
 const path = require("path");
 const VIEWS = path.join(__dirname, "views");
+app.set('view engine', 'pug')
 let acum=""
 app.get("/productos", (req, res) => {myInstance.getAll().then((data)=>{data.forEach(e=>acum+=`<img src="${e.url}"><h3>${e.id}-${e.title}----${e.price}---</h3>`);res.send(acum)})});
 
