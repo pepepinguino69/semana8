@@ -114,7 +114,7 @@ a{width:20rem;text-decoration:none;}
  a {
     color: var(--laranja);
 }
-h3:hover{
+a h3:hover{
     color: var(--azul);background-color:white;
 }
 
