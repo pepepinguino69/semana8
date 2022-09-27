@@ -120,9 +120,11 @@ a:hover {
 
 #panel{
   display:flex;
-  padding:1rem;
+  padding:.5rem;
   justify-content:space-around;
   align-items:center;
-  height:3rem;
+  height:1rem;
+  width:4rem
+  background-color:black
 }
 
