@@ -15,6 +15,7 @@ html
           h2= datum.id
           h2= datum.title
           h2= datum.price
+          b1¿
           
      
       
