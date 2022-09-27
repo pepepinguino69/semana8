@@ -52,16 +52,15 @@ app.get('/signup.html', (req, res) => res.sendFile(__dirname + '/views/signup.ht
 //app.use(upload.array()); 
 app.use(express.static('public'));
 
-app.post('/searchProduct/', function(req, res){
+app.post('/addProduct/', function(req, res){
    myInstance.save(req.body)    .then((data) => myInstance.getById(req.body.id).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'})))});
 
 app.post('/searchProduct/', function(req, res){
-   myInstance.save(req.body)    .then((data) => myInstance.getById(req.body.id).then((data) => res.render('modify',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'})))});
+   myInstance.getById(req.body.id).then((data) => res.render('card3',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))});
 
 
 
-
-app.get('/modify', (req, res) => res.sendFile(__dirname + '/views/.html'))
+app.get('/modify', (req, res) => res.sendFile(__dirname + '/views/searchProduct.html'))
 app.get('/addProduct', (req, res) => res.sendFile(__dirname + '/views/addProduct.html'))
 app.get('/signup', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
 app.get('/json/producto/:id',(req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
