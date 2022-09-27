@@ -58,7 +58,8 @@ app.post('/addProduct/', function(req, res){
 app.post('/searchProduct/', function(req, res){
    myInstance.getById(req.body.id).then((data) => res.render('card3',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))});
 
-app.DELETE('/deleteProduct/', function(req, res){myInstance.deleteById(req.body)});
+app.DELETE('/deleteProduct/', (req, res)=>{
+  myInstance.deleteById(req.body).then(data => res.send(req.body+" ha sido borrado"))});
 
 app.get('/modify', (req, res) => res.sendFile(__dirname + '/views/searchProduct.html'))
 app.get('/addProduct', (req, res) => res.sendFile(__dirname + '/views/addProduct.html'))
