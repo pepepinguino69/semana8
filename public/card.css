@@ -118,13 +118,17 @@ a:hover {
   text-align:center;
   color:white;}
 
-#panel{
+  #panel{
   display:flex;
   padding:.5rem;
   justify-content:space-around;
   align-items:center;
-  height:1rem;
-  width:4rem
-  background-color:black
+  height:2rem;
+  width:16rem;
+  background-color:black;
+  border-radius:15px;
+    border:white solid 1px;
 }
+
+.btnContainer{width:100vh;display:flex;justify-content:center}
 
