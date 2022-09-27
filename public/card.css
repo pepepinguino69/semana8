@@ -114,5 +114,15 @@ a:hover {
   
 }
 
-.titulo{font-size:50px;text-align:center;color:white;}
+.titulo{font-size:50px;
+  text-align:center;
+  color:white;}
+
+#panel{
+  display:flex;
+  padding:1rem;
+  justify-content:space-around;
+  align-items:center;
+  height:3rem;
+}
 
