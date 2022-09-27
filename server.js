@@ -58,7 +58,7 @@ app.post('/newProduct/', function(req, res){
 
 
 
-
+app.get('/modify', (req, res) => res.sendFile(__dirname + '/views/modify.html'))
 app.get('/addProduct', (req, res) => res.sendFile(__dirname + '/views/addProduct.html'))
 app.get('/signup', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
 app.get('/json/producto/:id',(req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
