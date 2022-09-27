@@ -67,11 +67,13 @@ h2 {
   align-content: center;
 }
 
-.container {
+.container3 {
   display: flex;
   justify-content: center;
   align-content: center;
   padding-top: 2%;
+  flex-direction:column;
+  width:100vw;
 }
 
 .ingresarA {
@@ -120,7 +122,6 @@ a:hover {
 
   #panel{
   display:flex;
-  padding:.5rem;
   justify-content:space-around;
   align-items:center;
   height:2rem;
@@ -130,5 +131,4 @@ a:hover {
     border:white solid 1px;
 }
 
-.btnContainer{width:100vh;display:flex;justify-content:center}
 
