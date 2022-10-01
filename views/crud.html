@@ -30,15 +30,15 @@
 
   <div class="container">
     
-      <div class="form-header">
+      <div class="form-header" id="functions">
         <p class="rounded" id="post">POST</p>
         <p class="rounded" id="put">PUT</p>
         <p class="rounded" id="delete">DELETE</p>
       </div >
-      <div class="form-header hidden">
-        <p class="rounded" id="arrow1">&lt-----</p>
-        <p class="rounded" id="field">ID</p>
-        <p class="rounded" id="arrow2">-----&gt</p>
+      <div class="form-header hidden" id="idSelection">
+        <p class="rounded" id="arrowDown">&lt-----</p>
+        <p class="rounded" id="idfield">ID</p>
+        <p class="rounded" id="arrowUP">-----&gt</p>
       </div >
     <form autocomplete="off" class="hidden" id="form">
       
@@ -67,7 +67,11 @@
   putFunction=document.querySelector("#put").addEventListener('click',(e)=>{alert('put')})
   delFunction=document.querySelector("#delete").addEventListener('click',e=>{alert('delete')})
   delFunction=document.querySelector("#form").addEventListener('click',(e)=>{e.preventDefault();alert('delete')})
-  
+  idSelection=document.querySelector("#IdSelection").classList.remove.('hidden')
+  functions=document.querySelector("#functions").classList.add.('hidden')
+  idField=document.querySelector('idField')
+  arrowDown=document.querySelector("#arrowDown").addEventListener(click)
+    
   
   
   
