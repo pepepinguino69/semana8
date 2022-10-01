@@ -48,6 +48,7 @@ app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.
 app.get('/index.html', (req, res) => res.sendFile(__dirname + '/views/index.html'))
 app.get('/index', (req, res) => res.sendFile(__dirname + '/views/index.html'))
 app.get('/signup.html', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
+app.get('/crud.html', (req, res) => res.sendFile(__dirname + '/views/crud.html'))
 
 //app.use(upload.array()); 
 app.use(express.static('public'));

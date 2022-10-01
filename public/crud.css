@@ -62,7 +62,7 @@ form {
 
 .form-header {
     display: flex;
-    flex-direction: column;
+    justify-content:space-around;
     align-items: center;
     margin-bottom: 1rem;
 }
@@ -118,3 +118,4 @@ a h3:hover{
     color: var(--azul);background-color:white;
 }
 
+.hidden{display:none}
