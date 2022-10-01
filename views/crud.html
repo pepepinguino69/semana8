@@ -29,12 +29,14 @@
   </header>
 
   <div class="container">
-    <form autocomplete="off">
+    
       <div class="form-header">
         <p class="rounded" id="post">POST</p>
-        <p class="rounded" >PUT</p>
-        <p class="rounded">DELETE</p>
+        <p class="rounded" id="PUT">PUT</p>
+        <p class="rounded" id="delete">DELETE</p>
       </div >
+    <form autocomplete="off" class="hidden">
+        
 
       <label>Id</label>
       <input id="inputId" type="text">
@@ -47,9 +49,10 @@
 
       <label>URL</label>
       <input id="inputUrl" type="text">
-
-
-      <button type="submit">Crear Cuenta</button>
+     
+      <button type="submit">Enviar</button>
+    
+         
     </form>
 
     <div class="ingresarA">

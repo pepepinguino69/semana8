@@ -118,4 +118,4 @@ a h3:hover{
     color: var(--azul);background-color:white;
 }
 
-.hidden{display:none}
+.hidden{visibility:hidde}
