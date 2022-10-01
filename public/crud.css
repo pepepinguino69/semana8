@@ -119,3 +119,5 @@ a h3:hover{
 }
 
 .hidden{visibility:hidde}
+
+.flex={display: flex;justify-content:space-around;align-items:center}
