@@ -88,12 +88,12 @@
       inputId.value=1;showForm()
       idField=document.querySelector('#idField')
       arrowDown=document.querySelector("#arrowDown").addEventListener('click',(e)=>{if (inputId.value>1){inputId.value--;showForm()}})
-      arrowUp=document.querySelector("#arrowUp").addEventListener('click',(e)=>{inputId.value++;showForm()})}
+      arrowUp=document.querySelector("#arrowUp").addEventListener('click',(e)=>{inputId.value++;showForm()})}}
 
                                                                                                                                                                                                           
   
-  function  showForm(){
-    contactApi(("/json/producto/"+inputId.value),{method: "GET",headers: {"Content-type": "application/json, charset=UTF-8"}})}
+  function  showForm(){alert("producto/"+inputId.value);
+    contactApi(("/producto/"+inputId.value),{method: "GET",headers: {"Content-type": "application/json, charset=UTF-8"}})}
   
     
     async function contactApi(url, configComm) {
@@ -135,7 +135,7 @@
   }
    
   
-  
+    
   </script>
 
 </body>
