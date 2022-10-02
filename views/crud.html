@@ -66,7 +66,14 @@
     </div>
   </div>
   <script>
-  inputId.value--;showForm()
+       let configGet = {
+  method: "GET",
+  headers: {
+    "Content-type": "application/json; charset=UTF-8"
+  }
+};                                                                                                    
+
+  inputId.value=1;showForm()
   postFunction=document.querySelector("#post").addEventListener('click',(e)=>{alert('post')})
   putFunction=document.querySelector("#put").addEventListener('click',(e)=>{alert('put')})
   delFunction=document.querySelector("#delete").addEventListener('click',e=>{alert('delete')})
@@ -80,12 +87,6 @@
 
                                                                                                        
                                                                                                        
-   let configGet = {
-  method: "GET",
-  headers: {
-    "Content-type": "application/json; charset=UTF-8"
-  }
-};                                                                                                    
   
   function  showForm(){contactApi("/json/producto/"+inputId.value,configGet)}
   async function contactApi(url, configComm) {
