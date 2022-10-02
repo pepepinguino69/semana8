@@ -76,7 +76,7 @@
   functions=document.querySelector("#functions").classList.add('hidden')
   idField=document.querySelector('#idField')
   arrowDown=document.querySelector("#arrowDown").addEventListener('click',(e)=>{if (inputId.value>1){inputId.value--}})
-  arrowUp=document.querySelector("#arrowUp").addEventListener('click',(e)=>{inputId.value++;console.log(contactApi("/json/producto/:"+inputId.value,configGet))})
+  arrowUp=document.querySelector("#arrowUp").addEventListener('click',(e)=>{inputId.value++;alert();contactApi("/json/producto/:"+inputId.value,configGet))})
 
                                                                                                        
                                                                                                        
@@ -121,11 +121,7 @@
     async function consultarTareas() {
    token = window.localStorage.getItem("jwt");
    let configGet = {
-     method: "GET",
-     headers: {
-       "Content-type": "application/json; charset=UTF-8"
-     },
-   };
+     method: "GET"};
    const offset = "/tasks";;
    Api = await contactApi(offset, configGet);}
   alert('llegue')
