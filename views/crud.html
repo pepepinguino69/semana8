@@ -66,10 +66,11 @@
     </div>
   </div>
   <script>
-  postFunction=document.querySelector("#post").addEventListener('click',(e)=>{let selectedFunction='POST';actions(selectedFunction)})
-  putFunction=document.querySelector("#put").addEventListener('click',(e)=>{let selectedFunction='PUT';alert(selectedFunction)})
-  delFunction=document.querySelector("#delete").addEventListener('click',e=>{let selectedFunction='DELETE';alert(selectedFunction)})
-  function actions(selectedFunction){
+  postFunction=document.querySelector("#post").addEventListener('click',(e)=>actions('POST','/addProduct'))
+  putFunction=document.querySelector("#put").addEventListener('click',(e)=>actions('PUT','/modifyProduct'))
+  delFunction=document.querySelector("#delete").addEventListener('click',e=>{actions('DELETE','/deleteProduct'))
+  
+  function actions(selectedFunction,offset){
     
   functions=document.querySelector("#delete").classList.add('invisible')
   functions=document.querySelector("#put").classList.add('invisible')
@@ -80,7 +81,7 @@
       
   form=document.querySelector("#form")
   form.classList.remove('hidden')
-  form.addEventListener('submit',(e)=>{e.preventDefault();alert('forma')})
+  form.addEventListener('submit',(e)=>{e.preventDefault();productosCore(selectedFunction)})
   
     
     
@@ -124,7 +125,6 @@
 }
   
   function productosCore(type, content) {
-  newState = content.substring(0, 1)
   
   
   let base = "https://important-glossy-tempo.glitch.me";
@@ -135,8 +135,10 @@
     },
   };
   
-  if (type != 'post') 
-    let offset = "/addProduct";
+  if (type == 'POST') {
+    let offset = "/addProduct"};
+  IF (type =='PUT')
+  
     config.body = JSON.stringify({ title:inputTitle,url:inputUrl,price:inputPrice})
   }
   else if (type == 'modify') { config.method='PUT'; config.body = JSON.stringify({ completed: newState }); offset = offset + "/" + content.substring(1); }
