@@ -66,20 +66,21 @@
     </div>
   </div>
   <script>
-  postFunction=document.querySelector("#post").addEventListener('click',(e)=>{let selectedFunction='post';actions(selectedFunction)})
-  putFunction=document.querySelector("#put").addEventListener('click',(e)=>{let selectedFunction='put';alert(selectedFunction)})
-  delFunction=document.querySelector("#delete").addEventListener('click',e=>{let selectedFunction='delete';alert(selectedFunction)})
+  postFunction=document.querySelector("#post").addEventListener('click',(e)=>{let selectedFunction='POST';actions(selectedFunction)})
+  putFunction=document.querySelector("#put").addEventListener('click',(e)=>{let selectedFunction='PUT';alert(selectedFunction)})
+  delFunction=document.querySelector("#delete").addEventListener('click',e=>{let selectedFunction='DELETE';alert(selectedFunction)})
   function actions(selectedFunction){
-    if (selectedFunction=='post'){
     
   functions=document.querySelector("#delete").classList.add('invisible')
   functions=document.querySelector("#put").classList.add('invisible')
   functions=document.querySelector("#post").classList.add('visible')  
+  functions.textContent=selectedFunction
+  
+  if (selectedFunction=='POST')
       
   form=document.querySelector("#form")
   form.classList.remove('hidden')
   form.addEventListener('submit',(e)=>{e.preventDefault();alert('forma')})
-  alert(selectedFunction)
   
     
     
@@ -125,19 +126,18 @@
   function productosCore(type, content) {
   newState = content.substring(0, 1)
   
-  if(type=='post'){
-  let offset = "/addProduct";
+  
   let base = "https://important-glossy-tempo.glitch.me";
   let config = {
-    method: "POST",
-    headers: {title:inputTitle.value,price:inputPrice,url:inputUrl
+    method: `${selectedFunction}`,
+    headers: {
       "Content-type": "application/json; charset=UTF-8",
-      Authorization: token,
     },
   };
   
-  if (type == 'create') {
-    config.body = JSON.stringify({ description: content, completed: false })
+  if (type != 'post') 
+    let offset = "/addProduct";
+    config.body = JSON.stringify({ title:inputTitle,url:inputUrl,price:inputPrice})
   }
   else if (type == 'modify') { config.method='PUT'; config.body = JSON.stringify({ completed: newState }); offset = offset + "/" + content.substring(1); }
   else {
