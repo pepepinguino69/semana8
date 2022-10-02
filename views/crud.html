@@ -73,28 +73,27 @@
   
   function actions(selectedFunction,offset){
     
-  functions=document.querySelector("#DELETE").classList.add('invisible')
-  functions=document.querySelector("#PUT").classList.add('invisible')
-  functions=document.querySelector("#POST")
-  functions.classList.add('visible')
-  functions.textContent=selectedFunction
-  form=document.querySelector("#form")
-  form.classList.remove('hidden')
-  if(selectedFunction!='POST'){
-    idSelection.classList.remove('hidden')
-    idSelection=document.querySelector("#idSelection")
-    functions=document.querySelector("#functions").classList.add('hidden')
-    inputId.value=1;showForm()
+    functions=document.querySelector("#DELETE").classList.add('invisible')
+    functions=document.querySelector("#PUT").classList.add('invisible')
+    functions=document.querySelector("#POST")
+    functions.classList.add('visible')
+    functions.textContent=selectedFunction
+    form=document.querySelector("#form")
+    form.classList.remove('hidden')
     form=document.querySelector("#form").addEventListener('submit',(e)=>{e.preventDefault();alert('forma')})
-    idField=document.querySelector('#idField')
-    arrowDown=document.querySelector("#arrowDown").addEventListener('click',(e)=>{if (inputId.value>1){inputId.value--;showForm()}})
-    arrowUp=document.querySelector("#arrowUp").addEventListener('click',(e)=>{inputId.value++;showForm()})}
+    if(selectedFunction!='POST'){
+      idSelection.classList.remove('hidden')
+      idSelection=document.querySelector("#idSelection")
+      functions=document.querySelector("#functions").classList.add('hidden')
+      inputId.value=1;showForm()
+      idField=document.querySelector('#idField')
+      arrowDown=document.querySelector("#arrowDown").addEventListener('click',(e)=>{if (inputId.value>1){inputId.value--;showForm()}})
+      arrowUp=document.querySelector("#arrowUp").addEventListener('click',(e)=>{inputId.value++;showForm()})}
 
                                                                                                                                                                                                           
   
-  function  showForm(){contactApi("/json/producto/"+inputId.value,{method: "GET",
-      headers: {
-      "Content-type": "application/json; charset=UTF-8"})}
+  function  showForm(){
+    contactApi(("/json/producto/"+inputId.value),{method: "GET",headers: {"Content-type": "application/json, charset=UTF-8"}})}
   
     
     async function contactApi(url, configComm) {
