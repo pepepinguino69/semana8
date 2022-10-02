@@ -68,7 +68,7 @@
   <script>
   postFunction=document.querySelector("#post").addEventListener('click',(e)=>actions('POST','/addProduct'))
   putFunction=document.querySelector("#put").addEventListener('click',(e)=>actions('PUT','/modifyProduct'))
-  delFunction=document.querySelector("#delete").addEventListener('click',e=>{actions('DELETE','/deleteProduct'))
+  delFunction=document.querySelector("#delete").addEventListener('click',(e)=>{actions('DELETE','/deleteProduct')})
   
   function actions(selectedFunction,offset){
     
@@ -126,15 +126,14 @@
   
   if (type == 'POST') {
     let offset = "/addProduct"};
-  IF (type =='PUT')
+  IF (type =='PUT'){
   
     config.body = JSON.stringify({ title:inputTitle,url:inputUrl,price:inputPrice})
   }
-  else if (type == 'modify') { config.method='PUT'; config.body = JSON.stringify({ completed: newState }); offset = offset + "/" + content.substring(1); }
   else {
     if (confirm('esta Seguro?')) { config.method = 'DELETE'; offset += '/' + content.substring(1) } }
     async function consultarTareas() {
-   token = window.localStorage.getItem("jwt");
+   \
    let configGet = {
      method: "GET"};
    const offset = "/tasks";;
