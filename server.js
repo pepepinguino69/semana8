@@ -34,7 +34,7 @@ app.set('view engine', 'pug')
 
 app.use(express.static('public'))
 const myInstance = new Contenedor("productos.txt");
-
+app.use(express.static('public'));
 let acum=""
 app.get("/", (req, res) => res.sendFile(__dirname + '/views/home.html'))
 
@@ -44,20 +44,10 @@ app.get('/productoRandom', (req, res) => {
 
 
 app.delete('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx).then((data) => res.send('borrado'))});
-app.put('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx);save(req.body).then((data) => res.send('borrado'))});
-
+app.put('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx);myInstance.save(req.body).then((data) => res.send('modificado'))});
 app.get('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.getById(xx).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
-
-app.get('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.getById(xx).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
-//app.post('/newProduct/',(req, res) => {res.render('the_template', { name: req.body.name });
-app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.json(data))});
-app.get('/index.html', (req, res) => res.sendFile(__dirname + '/views/index.html'))
-app.get('/index', (req, res) => res.sendFile(__dirname + '/views/index.html'))
-app.get('/signup.html', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
 app.get('/crud.html', (req, res) => res.sendFile(__dirname + '/views/crud.html'))
 
-//app.use(upload.array()); 
-app.use(express.static('public'));
 
 app.post('/addProduct/', function(req, res){
    myInstance.save(req.body)    .then((data) => myInstance.getById(req.body.id).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url})))});
@@ -69,13 +59,12 @@ app.post('/json/searchProduct/', function(req, res){
    myInstance.getById(req.body.id).then((data) => res.json(data))});
 
 
-app.del('/deleteProduct/', (req, res)=>{res.send(req.body.id+" ha sido borrado")});
+//app.del('/deleteProduct/', (req, res)=>{res.send(req.body.id+" ha sido borrado")});
 
-app.get('/modify', (req, res) => res.sendFile(__dirname + '/views/searchProduct.html'))
 app.get('/addProduct', (req, res) => res.sendFile(__dirname + '/views/addProduct.html'))
 app.get('/signup', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
-app.get('/json/producto/:id',(req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
-app.get('/json/productoRandom/', (req, res) => {myInstance.getById(-1).then((data) => res.json(data))});
+//app.get('/json/producto/:id',(req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
+//app.get('/json/productoRandom/', (req, res) => {myInstance.getById(-1).then((data) => res.json(data))});
 
 app.get('/productos', (req, res) => {
         myInstance.getAll().then((data)=>
