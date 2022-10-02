@@ -88,7 +88,7 @@
 };                                                                                                    
   
   async function contactApi(url, configComm) {
-    let base = "https://important-glossy-tempo.glitch.me/";
+    let base = "https://important-glossy-tempo.glitch.me";
     const response = await fetch(base + url, configComm);
     const data = await response.json();
     ;
@@ -131,7 +131,7 @@
    const offset = "/tasks";;
    Api = await contactApi(offset, configGet);}
   
-  return Api
+  alert (Api)}
   </script>
 
 </body>
