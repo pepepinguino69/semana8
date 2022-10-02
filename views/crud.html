@@ -39,7 +39,7 @@
       <div class="form-header hidden" id="idSelection">
         <p class="rounded" id="arrowDown">&lt-----</p>
          
-        <p class="rounded" id="idField"><input class="inputRound rounded" id="inputId" type="text" value=1>
+        <p class="rounded" id="idField"><input class="inputRound rounded" id="inputId" type="text" value="1">
         
         </p>
         <p class="rounded" id="arrowUp">-----&gt</p>
@@ -73,20 +73,18 @@
   
   function actions(selectedFunction,offset){
     
-  let functions=document.querySelector("#DELETE").classList.add('invisible')
+  functions=document.querySelector("#DELETE").classList.add('invisible')
   functions=document.querySelector("#PUT").classList.add('invisible')
-  functions=document.querySelector("#POST").classList.add('visible')  
+  functions=document.querySelector("#POST")
+  functions.classList.add('visible')  
   functions.textContent=selectedFunction
   form=document.querySelector("#form")
   form.classList.remove('hidden')
   if (selectedFunction!='POST'){
-  
-       let configGet = {
-  method: "GET",
-  headers: {
-    "Content-type": "application/json; charset=UTF-8"
-  }
-};                                                                                                    
+    let configGet = {method: "GET",
+      headers: {
+      "Content-type": "application/json; charset=UTF-8"}
+  };                                                                                                    
   
   idSelection.classList.remove('hidden')
   idSelection=document.querySelector("#idSelection")
