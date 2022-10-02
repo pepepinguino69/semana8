@@ -76,21 +76,10 @@
   functions=document.querySelector("#put").classList.add('invisible')
   functions=document.querySelector("#post").classList.add('visible')  
   functions.textContent=selectedFunction
-  
-  if (selectedFunction=='POST')
-      
   form=document.querySelector("#form")
   form.classList.remove('hidden')
-  form.addEventListener('submit',(e)=>{e.preventDefault();productosCore(selectedFunction)})
+  if (selectedFunction!='POST'){
   
-    
-    
-    
-  }
-  
-    else  
-  
-  {
        let configGet = {
   method: "GET",
   headers: {
@@ -124,7 +113,7 @@
     }
 }
   
-  function productosCore(type, content) {
+  function productosCore(type, content,offset) {
   
   
   let base = "https://important-glossy-tempo.glitch.me";
