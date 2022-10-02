@@ -101,7 +101,9 @@
   }                                                                                                    
   
   function  showForm(){contactApi("/json/producto/"+inputId.value,configGet)}
-  async function contactApi(url, configComm) {
+  
+    
+    async function contactApi(url, configComm) {
     let base = "https://important-glossy-tempo.glitch.me";
     const response = await fetch(base + url, configComm);
     const data =  await response.json();
@@ -116,7 +118,6 @@
   
   function productosCore(type, content,offset) {
   
-  
   let base = "https://important-glossy-tempo.glitch.me";
   let config = {
     method: `${selectedFunction}`,
@@ -125,16 +126,17 @@
     },
   };
   
+  offset = "/producto/"+inputId.value
   if (type == 'POST') {
-    let offset = "/addProduct"};
-  IF (type =='PUT'){let offset = "/addProduct"};
-  
-    config.body = JSON.stringify({ title:inputTitle,url:inputUrl,price:inputPrice})
-  }
+    let offset = "/addProduct"
+    }; 
+  if (type!='DELETE'){ config.body = JSON.stringify({ title:inputTitle,url:inputUrl,price:inputPrice})
+                     }
   else {
-    if (confirm('esta Seguro?')) { config.method = 'DELETE'; offset += '/' + content.substring(1) } }
+    if (confirm('esta Seguro?')) { config.method = 'DELETE' }}
    
-    
+    alert(config)
+    alert(offset)
   
   </script>
 
