@@ -37,7 +37,10 @@
       </div >
       <div class="form-header hidden" id="idSelection">
         <p class="rounded" id="arrowDown">&lt-----</p>
-        <p class="rounded" id="idField">ID</p>
+         
+        <p class="rounded" id="idField"><input class="inputRound rounded" id="inputId" type="text" value=1>
+        
+        </p>
         <p class="rounded" id="arrowUp">-----&gt</p>
       </div >
     <form autocomplete="off" class="hidden" id="form">
@@ -63,7 +66,7 @@
     </div>
   </div>
   <script>
-    let idIndicator=0;
+  let idIndicator=1
   postFunction=document.querySelector("#post").addEventListener('click',(e)=>{alert('post')})
   putFunction=document.querySelector("#put").addEventListener('click',(e)=>{alert('put')})
   delFunction=document.querySelector("#delete").addEventListener('click',e=>{alert('delete')})
@@ -71,8 +74,9 @@
   idSelection=document.querySelector("#idSelection")
   idSelection.classList.remove('hidden')  
   functions=document.querySelector("#functions").classList.add('hidden')
-  idField=document.querySelector('idField')
-  arrowDown=document.querySelector("#arrowDown").addEventListener('click',e=>{if (idIndicator==undefined||idIndicator==1){idIndicator=1}else{idIndicator--};idField.textContent=idIndicator})
+  idField=document.querySelector('#idField')
+  arrowDown=document.querySelector("#arrowDown").addEventListener('click',e=>{if (idIndicator==undefined||idIndicator==1){let idIndicator=1}else{idIndicator--};idField.textContent=idIndicator})
+  arrowUp=document.querySelector("#arrowUp").addEventListener('click',e=>{if (idIndicator==undefined){let idIndicator=1}else{idIndicator++};idField.textContent=idIndicator})
     
   
   
