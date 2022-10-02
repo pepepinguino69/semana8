@@ -15,8 +15,8 @@
 
 
   <!-- ---------------------- logica aplicada en register -------------------- -->
-  <script src="./scripts/utils.js" defer></script>
-  <script src="./scripts/crud.js" defer></script>
+  <script></script>
+  <script></script>
 
 </head>
 
@@ -66,11 +66,11 @@
   postFunction=document.querySelector("#post").addEventListener('click',(e)=>{alert('post')})
   putFunction=document.querySelector("#put").addEventListener('click',(e)=>{alert('put')})
   delFunction=document.querySelector("#delete").addEventListener('click',e=>{alert('delete')})
-  delFunction=document.querySelector("#form").addEventListener('click',(e)=>{e.preventDefault();alert('delete')})
+  fo=document.querySelector("#form").addEventListener('click',(e)=>{e.preventDefault();alert('delete')})
   idSelection=document.querySelector("#IdSelection").classList.remove.('hidden')
   functions=document.querySelector("#functions").classList.add.('hidden')
   idField=document.querySelector('idField')
-  arrowDown=document.querySelector("#arrowDown").addEventListener('click',e=>{if (idIndicator==1undefined||idIndicator==1){idIndicator=1}else{idIndicator--};idField.textContent=idIdindicator})
+  arrowDown=document.querySelector("#arrowDown").addEventListener('click',e=>{if (idIndicator==undefined||idIndicator==1){idIndicator=1}else{idIndicator--};idField.textContent=idIdindicator})
     
   
   
