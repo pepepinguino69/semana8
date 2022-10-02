@@ -90,7 +90,7 @@
   async function contactApi(url, configComm) {
     let base = "https://important-glossy-tempo.glitch.me";
     const response = await fetch(base + url, configComm);
-    const data = await response.json();
+    const data =  await response.json();
     ;
     if (response.status > 299) {
      alert(response.statusText);
