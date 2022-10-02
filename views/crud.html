@@ -70,7 +70,7 @@
   idSelection=document.querySelector("#IdSelection").classList.remove.('hidden')
   functions=document.querySelector("#functions").classList.add.('hidden')
   idField=document.querySelector('idField')
-  arrowDown=document.querySelector("#arrowDown").addEventListener(click)
+  arrowDown=document.querySelector("#arrowDown").addEventListener('click',e=>{if (idIndicator==1undefined||idIndicator==1){idIndicator=1}else{idIndicator--};idField.textContent=idIdindicator})
     
   
   
