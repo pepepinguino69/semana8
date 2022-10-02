@@ -42,6 +42,12 @@ app.get('/productoRandom', (req, res) => {
         myInstance.getById(-1).then((data)=>
               res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 
+
+app.delete('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx).then((data) => res.send('borrado'))});
+app.put('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx);save(req.body).then((data) => res.send('borrado'))});
+
+app.get('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.getById(xx).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
+
 app.get('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.getById(xx).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 //app.post('/newProduct/',(req, res) => {res.render('the_template', { name: req.body.name });
 app.get('/json/productos',(req, res) => {myInstance.getAll().then((data) => res.json(data))});

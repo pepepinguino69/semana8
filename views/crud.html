@@ -126,20 +126,15 @@
   
   if (type == 'POST') {
     let offset = "/addProduct"};
-  IF (type =='PUT'){
+  IF (type =='PUT'){let offset = "/addProduct"};
   
     config.body = JSON.stringify({ title:inputTitle,url:inputUrl,price:inputPrice})
   }
   else {
     if (confirm('esta Seguro?')) { config.method = 'DELETE'; offset += '/' + content.substring(1) } }
-    async function consultarTareas() {
-   \
-   let configGet = {
-     method: "GET"};
-   const offset = "/tasks";;
-   Api = await contactApi(offset, configGet);}
-  alert('llegue')
-  console.log (Api)}
+   
+    
+  
   </script>
 
 </body>
