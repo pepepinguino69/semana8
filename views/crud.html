@@ -69,10 +69,12 @@
   postFunction=document.querySelector("#post").addEventListener('click',(e)=>{let selectedFunction='post';actions(selectedFunction)})
   putFunction=document.querySelector("#put").addEventListener('click',(e)=>{let selectedFunction='put';alert(selectedFunction)})
   delFunction=document.querySelector("#delete").addEventListener('click',e=>{let selectedFunction='delete';alert(selectedFunction)})
-  function actions(){
+  function actions(selectedFunction){
     if (selectedFunction=='post'){
     
-  functions=document.querySelector("#functions").classList.add('hidden')
+  functions=document.querySelector("#functions").classList.add('invisible')
+  functions=document.querySelector("#post").classList.add('visible')  
+      
   form=document.querySelector("#form")
   form.classList.remove('hidden')
   form.addEventListener('submit',(e)=>{e.preventDefault();alert('forma')})

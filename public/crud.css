@@ -123,3 +123,6 @@ a h3:hover{
 .flex={color:white;display: flex;justify-content:space-around;align-items:center}
 
 .inputRound{width:38px;text-align:center}
+
+.invisible{display:none}
+.visible{display:block}
