@@ -76,8 +76,8 @@
   functions=document.querySelector("#functions").classList.add('hidden')
   idField=document.querySelector('#idField')
   arrowDown=document.querySelector("#arrowDown").addEventListener('click',(e)=>{if (inputId.value>1){inputId.value--}})
-  arrowUp=document.querySelector("#arrowUp").addEventListener('click',(e)=>{inputId.value++;alert(contactApi("/json/producto/:"+inputId.value",configGet)}))
-  /json/producto/:id
+  arrowUp=document.querySelector("#arrowUp").addEventListener('click',(e)=>{inputId.value++;alert(contactApi("/json/producto/:"+inputId.value,configGet))})
+
                                                                                                        
                                                                                                        
    let configGet = {
@@ -88,7 +88,7 @@
 };                                                                                                    
   
   async function contactApi(url, configComm) {
-    let base = "https://important-glossy-tempo.glitch.me;
+    let base = "https://important-glossy-tempo.glitch.me/";
     const response = await fetch(base + url, configComm);
     const data = await response.json();
     ;
