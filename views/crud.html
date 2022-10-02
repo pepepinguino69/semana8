@@ -75,8 +75,8 @@
   idSelection.classList.remove('hidden')  
   functions=document.querySelector("#functions").classList.add('hidden')
   idField=document.querySelector('#idField')
-  arrowDown=document.querySelector("#arrowDown").addEventListener('click',e=>{if (idIndicator==undefined||idIndicator==1){let idIndicator=1}else{idIndicator--};idField.textContent=idIndicator})
-  arrowUp=document.querySelector("#arrowUp").addEventListener('click',e=>{if (idIndicator==undefined){let idIndicator=1}else{idIndicator++};idField.textContent=idIndicator})
+  arrowDown=document.querySelector("#arrowDown").addEventListener('click',e=>{if (inputId.value>1){inputId.value--})
+    arrowUp=document.querySelector("#arrowUp").addEventListener('click',e=>{inputId.value++})
     
   
   
