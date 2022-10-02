@@ -76,10 +76,42 @@
   functions=document.querySelector("#functions").classList.add('hidden')
   idField=document.querySelector('#idField')
   arrowDown=document.querySelector("#arrowDown").addEventListener('click',(e)=>{if (inputId.value>1){inputId.value--}})
-  arrowUp=document.querySelector("#arrowUp").addEventListener('click',(e)=>{inputId.value++})
-    
+  arrowUp=document.querySelector("#arrowUp").addEventListener('click',(e)=>{inputId.value++;contactApi("/json/producto/:"+inputId.value","GET")})
+  /json/producto/:id
   
+  async function contactApi(url, configComm) {
+    let base = "https://important-glossy-tempo.glitch.me;
+    const response = await fetch(base + url, configComm);
+    const data = await response.json();
+    ;
+    if (response.status > 299) {
+     alert(response.statusText);
+    } else {
+      return data;
+    }
+}
   
+  function tasksCore(type, content) {
+  newState = content.substring(0, 1)
+  
+  if(newState=='p'){newState=true}else{newState=false}
+  let offset = "/tasks";
+  let base = "https://ctd-todo-api.herokuapp.com/v1";
+  let config = {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+      Authorization: token,
+    },
+  };
+  
+  if (type == 'create') {
+    config.body = JSON.stringify({ description: content, completed: false })
+  }
+  else if (type == 'modify') { config.method='PUT'; config.body = JSON.stringify({ completed: newState }); offset = offset + "/" + content.substring(1); }
+  else {
+    if (confirm('esta Seguro?')) { config.method = 'DELETE'; offset += '/' + content.substring(1) } }
+   
   
   
   </script>
