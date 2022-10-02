@@ -118,7 +118,7 @@ a h3:hover{
     color: var(--azul);background-color:white;
 }
 
-.hidden{visibility:hidde}
+.hidden{visibility:hidden}
 
 .flex={color:white;display: flex;justify-content:space-around;align-items:center}
 

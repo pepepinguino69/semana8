@@ -66,9 +66,10 @@
     </div>
   </div>
   <script>
-  postFunction=document.querySelector("#post").addEventListener('click',(e)=>{alert('post')})
-  putFunction=document.querySelector("#put").addEventListener('click',(e)=>{alert('put')})
-  delFunction=document.querySelector("#delete").addEventListener('submit',e=>{alert('delete')})
+  postFunction=document.querySelector("#post").addEventListener('click',(e)=>{let selectedFunction='post';alert(selectedFunction)})
+  putFunction=document.querySelector("#put").addEventListener('click',(e)=>{let selectedFunction='put';alert(selectedFunction)})
+  delFunction=document.querySelector("#delete").addEventListener('click',e=>{let selectedFunction='delete';alert(selectedFunction)})
+  if
   
   function modify(){
        let configGet = {
@@ -77,12 +78,12 @@
     "Content-type": "application/json; charset=UTF-8"
   }
 };                                                                                                    
-
-  inputId.value=1;showForm()
-  form=document.querySelector("#form").addEventListener('click',(e)=>{e.preventDefault();alert('forma')})
+  
+  idSelection.classList.remove('hidden')
   idSelection=document.querySelector("#idSelection")
-  idSelection.classList.remove('hidden')  
   functions=document.querySelector("#functions").classList.add('hidden')
+  inputId.value=1;showForm()
+  form=document.querySelector("#form").addEventListener('submit',(e)=>{e.preventDefault();alert('forma')})
   idField=document.querySelector('#idField')
   arrowDown=document.querySelector("#arrowDown").addEventListener('click',(e)=>{if (inputId.value>1){inputId.value--;showForm()}})
   arrowUp=document.querySelector("#arrowUp").addEventListener('click',(e)=>{inputId.value++;showForm()})}
