@@ -66,12 +66,26 @@
     </div>
   </div>
   <script>
-  postFunction=document.querySelector("#post").addEventListener('click',(e)=>{let selectedFunction='post';alert(selectedFunction)})
+  postFunction=document.querySelector("#post").addEventListener('click',(e)=>{let selectedFunction='post';actions(selectedFunction)})
   putFunction=document.querySelector("#put").addEventListener('click',(e)=>{let selectedFunction='put';alert(selectedFunction)})
   delFunction=document.querySelector("#delete").addEventListener('click',e=>{let selectedFunction='delete';alert(selectedFunction)})
-  if
+  function actions(){
+    if (selectedFunction=='post'){
+    
+  functions=document.querySelector("#functions").classList.add('hidden')
+  form=document.querySelector("#form")
+  form.classList.remove('hidden')
+  form.addEventListener('submit',(e)=>{e.preventDefault();alert('forma')})
+  alert(selectedFunction)
   
-  function modify(){
+    
+    
+    
+  }
+  
+    else  
+  
+  {
        let configGet = {
   method: "GET",
   headers: {
@@ -89,7 +103,7 @@
   arrowUp=document.querySelector("#arrowUp").addEventListener('click',(e)=>{inputId.value++;showForm()})}
 
                                                                                                        
-                                                                                                       
+  }                                                                                                    
   
   function  showForm(){contactApi("/json/producto/"+inputId.value,configGet)}
   async function contactApi(url, configComm) {
