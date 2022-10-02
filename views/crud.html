@@ -72,7 +72,8 @@
   function actions(selectedFunction){
     if (selectedFunction=='post'){
     
-  functions=document.querySelector("#functions").classList.add('invisible')
+  functions=document.querySelector("#delete").classList.add('invisible')
+  functions=document.querySelector("#put").classList.add('invisible')
   functions=document.querySelector("#post").classList.add('visible')  
       
   form=document.querySelector("#form")
@@ -121,15 +122,15 @@
     }
 }
   
-  function tasksCore(type, content) {
+  function productosCore(type, content) {
   newState = content.substring(0, 1)
   
-  if(newState=='p'){newState=true}else{newState=false}
-  let offset = "/tasks";
+  if(type=='post'){
+  let offset = "/addProduct";
   let base = "https://important-glossy-tempo.glitch.me";
   let config = {
     method: "POST",
-    headers: {
+    headers: {title:inputTitle.value,price:inputPrice,url:inputUrl
       "Content-type": "application/json; charset=UTF-8",
       Authorization: token,
     },
