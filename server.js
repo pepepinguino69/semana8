@@ -43,28 +43,14 @@ app.get('/productoRandom', (req, res) => {
               res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 
 
-app.delete('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx).then((data) => res.send('borrado'))});
-app.put('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx);myInstance.save(req.body).then((data) => res.send('modificado'))});
+app.delete('/json/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx).then((data) => res.send('borrado'))});
+app.put('/json/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx);myInstance.save(req.body).then((data) => res.send('modificado'))});
 app.get('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.getById(xx).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 app.get('/crud.html', (req, res) => res.sendFile(__dirname + '/views/crud.html'))
-
-
 app.post('/addProduct/', function(req, res){
-   myInstance.save(req.body)    .then((data) => myInstance.getById(req.body.id).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url})))});
-
-app.post('/searchProduct/', function(req, res){
-   myInstance.getById(req.body.id).then((data) => res.send('card3',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))});
-
-app.post('/json/searchProduct/', function(req, res){
-   myInstance.getById(req.body.id).then((data) => res.json(data))});
-
-
-//app.del('/deleteProduct/', (req, res)=>{res.send(req.body.id+" ha sido borrado")});
-
-app.get('/addProduct', (req, res) => res.sendFile(__dirname + '/views/addProduct.html'))
+myInstance.save(req.body)    .then((data) => myInstance.getById(req.body.id).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url})))});
 app.get('/signup', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
-app.get('/json/producto/:id',(req, res) => {const { id } = req.params;myInstance.getById(id).then((data) => res.json(data))});
-//app.get('/json/productoRandom/', (req, res) => {myInstance.getById(-1).then((data) => res.json(data))});
+
 
 app.get('/productos', (req, res) => {
         myInstance.getAll().then((data)=>
