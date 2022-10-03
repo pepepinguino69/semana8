@@ -32,7 +32,7 @@ app.use(express.static('public'))
 const myInstance = new Contenedor("productos.txt");
 app.use(express.static('public'));
 let acum=""
-app.get("/", (req, res) => res.sendFile(__dirname + '/views/home.html'))
+//app.get("/", (req, res) => res.sendFile(__dirname + '/views/home.html'))
 
 app.get('/productoRandom', (req, res) => {
         myInstance.getById(-1).then((data)=>
@@ -45,7 +45,7 @@ app.get('/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.get
 app.get('/crud.html', (req, res) => res.sendFile(__dirname + '/views/crud.html'))
 //app.post('/addProduct/', function(req, res){
 //myInstance.save(req.body)    .then((data) => myInstance.getById(req.body.id).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url})))});
-app.get('/signup', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
+//app.get('/signup', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
 app.get('/json/productos', (req, res) => myInstance.getAll().then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'})))
 
 
