@@ -89,7 +89,7 @@
       idField=document.querySelector('#idField')
       arrowDown=document.querySelector("#arrowDown").addEventListener('click',(e)=>{if (inputId.value>1){inputId.value--;showForm()}})
       arrowUp=document.querySelector("#arrowUp").addEventListener('click',(e)=>{inputId.value++;showForm()})}}
-
+      idField.addEventListener('change',(e)=>{showForm()})
                                                                                                                                                                                                           
   
   function  showForm(){
