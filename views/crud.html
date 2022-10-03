@@ -67,9 +67,9 @@
     </div>
   </div>
   <script>
-  postFunction=document.querySelector("#POST").addEventListener('click',(e)=>actions('POST','/addProduct'))
-  putFunction=document.querySelector("#PUT").addEventListener('click',(e)=>actions('PUT','/producto'))
-  delFunction=document.querySelector("#DELETE").addEventListener('click',(e)=>{actions('DELETE','/producto')})
+  postFunction=document.querySelector("#POST").addEventListener('click',(e)=>actions('POST'))
+  putFunction=document.querySelector("#PUT").addEventListener('click',(e)=>actions('PUT'))
+  delFunction=document.querySelector("#DELETE").addEventListener('click',(e)=>actions('DELETE'))
   
   function actions(selectedFunction,offset){
     
@@ -80,7 +80,7 @@
     functions.textContent=selectedFunction
     form=document.querySelector("#form")
     form.classList.remove('hidden')
-    form=document.querySelector("#form").addEventListener('submit',(e)=>{e.preventDefault();alert('forma')})
+    form=document.querySelector("#form").addEventListener('submit',(e)=>{e.preventDefault();productosCore(selectedFunction)})
     if(selectedFunction!='POST'){
       idSelection.classList.remove('hidden')
       idSelection=document.querySelector("#idSelection")
@@ -92,14 +92,12 @@
 
                                                                                                                                                                                                           
   
-  function  showForm(){alert("/producto/"+inputId.value);
-    contactApi(("/producto/"+inputId.value),{method: "GET",headers: {"Content-type": "application/json, charset=UTF-8"}})}
+  function  showForm(){
+    contactApi(("/json/producto/"+inputId.value),{method: "GET",headers: {"Content-type": "application/json, charset=UTF-8"}})}
   
     
     async function contactApi(url, configComm) {
     let base = "https://important-glossy-tempo.glitch.me";
-    alert(base+url)
-    alert(configComm)
     const response = await fetch(base + url, configComm);
     const data =  await response.json();
     if (response.status > 299) {
@@ -111,7 +109,7 @@
     }
 }
   
-  function productosCore(type, content,offset) {
+  function productosCore(type) {
   
   let base = "https://important-glossy-tempo.glitch.me";
   let config = {
@@ -121,7 +119,7 @@
     },
   };
   
-  offset = "/producto/"+inputId.value
+  offset = "/json/producto/"+inputId.value
   if (type == 'POST') {
     offset = "/addProduct"
   }; 
