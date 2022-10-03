@@ -124,14 +124,17 @@
     offset = "/addProduct"
   }; 
   if (type!='DELETE'){
-    config.body = JSON.stringify({ title:inputTitle,url:inputUrl,price:inputPrice})
+    config.body = JSON.stringify({ title:inputTitle.value,url:inputUrl.value,price:inputPrice.value})
   }
   else {
     if (confirm('esta Seguro?')) {
       config.method = 'DELETE' }
   }
-  alert(config);
-  alert(offset)
+  alert(offset);
+  alert(config.body);
+  
+  contactApi(offset,config)
+  
   }
    
   
