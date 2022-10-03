@@ -28,6 +28,25 @@ const Contenedor = class Contenedor {
         return data;
     };
 
+    async putById(id,body){
+        let found = false;
+        const data = await this.getAll();
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].id == id) {
+                found = true
+                data[i].price=body.price;
+                data[i].title=body.title;
+                data[i].url=body.url
+                return await fs.writeFile(
+                this.path, JSON.stringify(data),"utf8", (err, data) => {
+                    if (err) { console.log(err); }
+                })
+                
+            
+            }
+        } if (!found) return 'el id seleccionado no existe'
+    };
+
     async getById(id){
         let found = false;
         const data = await this.getAll();
@@ -55,7 +74,7 @@ const Contenedor = class Contenedor {
                 })
         }
         else {
-            console.log('El id seleccionado no existe')
+            return 'El id seleccionado no existe'
         }
     }
         
