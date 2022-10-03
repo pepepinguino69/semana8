@@ -8,8 +8,6 @@ const jwt = require('jsonwebtoken');
 //require('crypto').randomBytes(64).toString('hex')->genera el token
 //guardado en el .env
 const dotenv = require('dotenv');
-
-
 const  Contenedor  = require('./Contenedor.js').Contenedor
 
 
