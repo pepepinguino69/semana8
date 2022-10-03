@@ -39,9 +39,9 @@ app.get('/productoRandom', (req, res) => {
               res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 
 
-app.delete('/json/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx).then((data) => res.send('borrado'))});
+app.delete('/json/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx).then((data) => res.send(data))});
 app.put('/json/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx);myInstance.save(req.body).then((data) => res.send('modificado'))});
-app.get('/json/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.getById(xx).then((data) => res.json({id:data.id,price:data.price,title:data.title,url:data.url}))})
+  app.get('/json/producto/:xx',  (req, res) => {const { xx } = req.params;myInstance.getById(xx).then((data) => res.json({id:data.id,price:data.price,title:data.title,url:data.url}))})
 app.get('/crud.html', (req, res) => res.sendFile(__dirname + '/views/crud.html'))
 app.post('/addProduct/', function(req, res){
 myInstance.save(req.body)    .then((data) => myInstance.getById(req.body.id).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url})))});
