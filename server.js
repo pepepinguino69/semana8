@@ -10,8 +10,6 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 const  Contenedor  = require('./Contenedor.js').Contenedor
 
-
-
 // get config vars
 dotenv.config();
 
