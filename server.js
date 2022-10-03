@@ -46,7 +46,7 @@ app.get('/crud.html', (req, res) => res.sendFile(__dirname + '/views/crud.html')
 app.post('/addProduct/', function(req, res){
 myInstance.save(req.body)    .then((data) => myInstance.getById(req.body.id).then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url})))});
 app.get('/signup', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
-app.get('/json/productos', (req, res) => myInstance.getAll.then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
+//app.get('/json/productos', (req, res) => myInstance.getAll().then((data) => res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'})))
 
 
 app.get('/productos', (req, res) => {
