@@ -47,11 +47,10 @@ const Contenedor = class Contenedor {
                 console.log(err);
             }
         }))
-        const newData = data.filter((item) => item.id !== id);
+        const newData = data.filter((item) => item.id != id);
         if (newData.length != data.length) {
-           await fs.writeFile(this.path, JSON.stringify(data), "utf8");
             return await fs.writeFile(
-                this.path, JSON.stringify(newData), (err, data) => {
+                this.path, JSON.stringify(newData),"utf8", (err, data) => {
                     if (err) { console.log(err); }
                 })
         }
