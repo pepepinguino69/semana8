@@ -37,7 +37,7 @@ const Contenedor = class Contenedor {
                 found = true
                 return data[i];
             }
-        } if (!found) { console.log('el id seleccionado no existe') }
+        } if (!found) return 'el id seleccionado no existe'
     };
 
     async deleteById(id){
