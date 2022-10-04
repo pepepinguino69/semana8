@@ -103,11 +103,19 @@
     const data =  await response.json();
     if (response.status > 299) {
      alert(response.statusText);
-    } else {
-       inputTitle.value=data.title;
+    } else if (data!={}{
+      inputTitle.value=data.title;
       inputPrice.value=data.price;
       inputUrl.value=data.url;
+       document.querySelector("#submit").classList.add('hidden')
     }
+    else
+      console.log("ese registro no existe")
+      inputTitle.value="Registro Vacio";
+      inputPrice.value="Registro Vacio";
+      inputUrl.value="Registro Vacio";
+      
+      document.querySelector("#submit").classList.add('hidden')
 }
   
   function productosCore(type) {
