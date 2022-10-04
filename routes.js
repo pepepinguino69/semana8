@@ -1,9 +1,10 @@
 // server.js
 const express = require("express");
-const productRouter = express.Router();
 const  Contenedor  = require('./Contenedor.js').Contenedor
+const productRouter = express.Router();
 
-const myInstance = new Contenedor("productos.txt");
+
+
 
 productRouter.get("/",(req,res)=>{res.send("peticion recibida desde router produyctos")})
 productRouter.delete('/api/productos/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx).then((data) => res.send(data))});
