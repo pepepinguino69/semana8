@@ -8,3 +8,6 @@ app.use(express.urlencoded({extended:true}));
 //app.use("/api/productos", productRouter);
 
 // posibles rutas
+
+
+
