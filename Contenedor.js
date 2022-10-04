@@ -94,7 +94,7 @@ module.exports = class Contenedor{};
 //prueba = () => {
 		//console.log(this.path);
 	//};
-//module.exports = {Contenedor:Contenedor} 
+module.exports = {Contenedor:Contenedor} 
 
 
 
