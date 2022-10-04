@@ -2,23 +2,23 @@
 const express = require("express");
 const luxon= require ("luxon")
 const { DateTime } = require("luxon");
-const jwt = require('jsonwebtoken');
-const productRouter = require("./router/routes")
+//const jwt = require('jsonwebtoken');
+const productRouter = require("./routes")
 //const multer = require('multer');
 //const upload = multer();
 //require('crypto').randomBytes(64).toString('hex')->genera el token
 //guardado en el .env
-const dotenv = require('dotenv');
+//const dotenv = require('dotenv');
 const  Contenedor  = require('./Contenedor.js').Contenedor
 
 // get config vars
-dotenv.config();
+//dotenv.config();
 
 // access config var
 process.env.TOKEN_SECRET;
-function generateAccessToken(username) {
-  return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
-}
+//function generateAccessToken(username) {
+//  return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
+//}
 
 
 //let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long', day: 'numeric',year:'numeric',hour:'numeric',minute:'numeric' })
