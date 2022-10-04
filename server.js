@@ -3,7 +3,7 @@ const express = require("express");
 const luxon= require ("luxon")
 const { DateTime } = require("luxon");
 const jwt = require('jsonwebtoken');
-const productRouter = require("./router/routes.js;
+const productRouter = require("./router/routes")
 //const multer = require('multer');
 //const upload = multer();
 //require('crypto').randomBytes(64).toString('hex')->genera el token
@@ -34,10 +34,6 @@ const myInstance = new Contenedor("productos.txt");
 app.use(express.static('public'));
 let acum=""
 //app.get("/", (req, res) => res.sendFile(__dirname + '/views/home.html'))
-
-app.get('/productoRandom', (req, res) => {
-        myInstance.getById(-1).then((data)=>
-              res.render('card',{id:data.id,price:data.price,title:data.title,img:data.url,nombre:'Ariel Rubel'}))})
 
 
 //app.delete('/json/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx).then((data) => res.send(data))});
