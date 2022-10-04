@@ -1,9 +1,9 @@
 // server.js
 const express = require("express");
-const  Contenedor  = require('Contenedor.js').Contenedor
+const  Contenedor  = require('../Contenedor.js').Contenedor
 const productRouter = express.Router();
 
-const myInstance = new Contenedor("productos.txt");
+const myInstance = new Contenedor("./productos.txt");
 
 
 productRouter.get("/",(req,res)=>{res.send("peticion recibida desde router produyctos")})
