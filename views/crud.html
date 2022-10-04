@@ -112,6 +112,12 @@
     }
     else{
       console.log("ese registro no existe")
+      inputTitle.value="producto no encontrado";
+      inputPrice.value="producto no encontrado";
+      inputUrl.value="producto no encontrado";
+      
+      document.querySelector("#submit").classList.add('hidden')}
+}
       res.json({
             message:"producto no encontrado"
         })
