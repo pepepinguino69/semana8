@@ -1,7 +1,8 @@
 // server.js
 const express = require("express");
-const productRouter = express.Router();
 const  Contenedor  = require('./Contenedor.js').Contenedor
+const productRouter = express.Router();
+
 const myInstance = new Contenedor("productos.txt");
 
 

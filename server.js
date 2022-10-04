@@ -1,36 +1,11 @@
 // server.js
 const express = require("express");
-//const luxon= require ("luxon")
-//const { DateTime } = require("luxon");
-//const jwt = require('jsonwebtoken');
-const productRouter = require("./routes")
-app.use("/api/productos", productRouter);
-
-//const multer = require('multer');
-//const upload = multer();
-//require('crypto').randomBytes(64).toString('hex')->genera el token
-//guardado en el .env
-//const dotenv = require('dotenv');
-
-
-// get config vars
-//dotenv.config();
-
-// access config var
-//process.env.TOKEN_SECRET;
-//function generateAccessToken(username) {
-//  return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
-//}
-
-
-//let datos = DateTime.now().setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long', day: 'numeric',year:'numeric',hour:'numeric',minute:'numeric' })
+const productRouter = require("./router/routes")
 const app = express();
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use("/api/productos", productRouter);
 const path = require("path");
-//const VIEWS = path.join(__dirname, "views");
-app.set('view engine', 'pug')
-
 app.use(express.static('public'))
 let acum=""
 //app.get("/", (req, res) => res.sendFile(__dirname + '/views/home.html'))
