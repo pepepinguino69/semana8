@@ -103,19 +103,20 @@
     const data =  await response.json();
     if (response.status > 299) {
      alert(response.statusText);
-    } else if (data!={}{
+    } 
+    else if (data.title!=undefined){
       inputTitle.value=data.title;
       inputPrice.value=data.price;
       inputUrl.value=data.url;
-       document.querySelector("#submit").classList.add('hidden')
+       document.querySelector("#submit").classList.remove('hidden')
     }
-    else
+    else{
       console.log("ese registro no existe")
       inputTitle.value="Registro Vacio";
       inputPrice.value="Registro Vacio";
       inputUrl.value="Registro Vacio";
       
-      document.querySelector("#submit").classList.add('hidden')
+      document.querySelector("#submit").classList.add('hidden')}
 }
   
   function productosCore(type) {
