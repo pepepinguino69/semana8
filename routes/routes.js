@@ -22,10 +22,10 @@
 //module.exports = productRouter
 
 const express = require("express");
-//const Contenedor = require("../Contenedor");
+const Contenedor = require("../Contenedor");
 const productsRouter = express.Router();
 
-//const contenedorProductos = new Contenedor("productos.txt");
+const contenedorProductos = new Contenedor("productos.txt");
 
 productsRouter.get("/home",(req,res)=>{
     res.send("peticion home")
