@@ -3,6 +3,7 @@ const express = require("express");
 const luxon= require ("luxon")
 const { DateTime } = require("luxon");
 const jwt = require('jsonwebtoken');
+const productRouter = require("./router/routes.js;
 //const multer = require('multer');
 //const upload = multer();
 //require('crypto').randomBytes(64).toString('hex')->genera el token
