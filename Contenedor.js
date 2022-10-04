@@ -100,12 +100,6 @@ module.exports = {Contenedor:Contenedor}
 
 
 
-const newObject = {
-	title: "album del mundia",
-	price: 198450,
-	url: "www.musimundo.com",
-};
-
 //********************************************************************* //
 //Para probar basta sacar descomentar las lineas que siguen              //
 //La Sugerencia es hacerlo de dos en dos para poder ver los resultados
