@@ -104,7 +104,7 @@
     if (response.status > 299) {
      alert(response.statusText);
     } 
-    else if (data.title!=undefined){
+    if (data.title!=undefined){
       inputTitle.value=data.title;
       inputPrice.value=data.price;
       inputUrl.value=data.url;
@@ -115,13 +115,7 @@
       inputTitle.value="producto no encontrado";
       inputPrice.value="producto no encontrado";
       inputUrl.value="producto no encontrado";
-      
       document.querySelector("#submit").classList.add('hidden')
-
-      
-      res.json({
-            message:"producto no encontrado"
-      })
     }
 }
   
