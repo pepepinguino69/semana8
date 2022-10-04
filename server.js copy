@@ -2,7 +2,7 @@
 const express = require("express");
 productRouter = require(("./router/routes)
 
-
+console.log(productRouter)
 
 const luxon= require ("luxon")
 const { DateTime } = require("luxon");
@@ -38,6 +38,7 @@ const myInstance = new Contenedor("productos.txt");
 app.use(express.static('public'));
 let acum=""
 //app.get("/", (req, res) => res.sendFile(__dirname + '/views/home.html'))
+
 
 
 //app.delete('/json/producto/:xx', (req, res) => {const { xx } = req.params;myInstance.deleteById(xx).then((data) => res.send(data))});
