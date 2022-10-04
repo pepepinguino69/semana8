@@ -2,7 +2,7 @@
 const express = require("express");
 const productRouter = express.Router();
 const  Contenedor  = require('./Contenedor.js').Contenedor
-
+const myInstance = new Contenedor("productos.txt");
 
 
 productRouter.get("/",(req,res)=>{res.send("peticion recibida desde router produyctos")})
