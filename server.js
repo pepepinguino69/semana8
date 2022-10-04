@@ -1,7 +1,12 @@
 // server.js
 const express = require("express");
-const productRouter = require("./router/routes")
+const productRouter = require("./routes/routes")
 const app = express();
+const port = 8080;
+app.listen(port, () => {
+  console.log(`server listening on port ${port}`);
+});
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use("/api/productos", productRouter);
@@ -20,9 +25,5 @@ let acum=""
 //app.get('/signup', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
 //app.get('/json/productos', (req, res) => myInstance.getAll().then((data) => res.json({data})))
 
+  
 
-
-const port = 8080;
-app.listen(port, () => {
-  console.log(`server listening on port ${port}`);
-});
