@@ -15,6 +15,7 @@ app.use("/api/productos", productsRouter);
 app.get('/', (req, res) => res.sendFile(__dirname + '/views/crud.html'))
 app.get('/signup', (req, res) => res.sendFile(__dirname + '/views/signup.html'))
 app.get('/index', (req, res) => res.sendFile(__dirname + '/views/index.html'))
+app.get('/handlebar1', (req, res) => res.sendFile(__dirname + '/views/handlebar1.html'))
 
 
 
