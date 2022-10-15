@@ -1,10 +1,13 @@
 
 const express = require("express");
 const productsRouter = require("./routes/routes");
-
+const {Server}=require("server.io")
 const app = express();
 
 app.listen(8080,()=>console.log("server listening on port 8080"));
+
+
+app.use(express.static(_dirname))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 const path = require("path");
