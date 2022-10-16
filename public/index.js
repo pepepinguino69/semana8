@@ -4,15 +4,17 @@ const socketClient = io();
 
 
 let user;
+newUser()
 
+async function newUser(){
 Swal.fire({
     title:"Hola usuario",
     text:"bienvenido, ingresa tu usario",
     input:"text",
     allowOutsideClick:false
 }).then(respuesta=>{
-    // console.log(respuesta)
-    //user = respuesta.value;socketClient.emit("message",{username:user,message:user+" se ha unido"})
+    user = respuesta.value;
+   socketClient.emit("message",{username:user,message:user+" se ha unido"})
   
   
   
