@@ -18,7 +18,7 @@ Swal.fire({
   
   
   
-})};
+});
 
 const campo = document.getElementById("messageField")
 
