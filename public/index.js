@@ -26,7 +26,7 @@ campo.addEventListener("keydown",(evt)=>{
     console.log(evt.key)
     if(evt.key === "Enter"){
         socketClient.emit("message",{
-            username:user,
+            username:user+"-"+socketClient.id,
             message:campo.value
         });campo.value=""
     }
