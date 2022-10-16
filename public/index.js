@@ -22,7 +22,7 @@ campo.addEventListener("keydown",(evt)=>{
         socketClient.emit("message",{
             username:user,
             message:campo.value
-        })
+        });
     }
 })
 
