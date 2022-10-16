@@ -13,6 +13,13 @@ Swal.fire({
 }).then(respuesta=>{
     // console.log(respuesta)
     user = respuesta.value;
+  socketClient.emit("message",{
+            username:user,
+            message:campo.value
+        })
+  
+  
+  
 });
 
 const campo = document.getElementById("messageField")
