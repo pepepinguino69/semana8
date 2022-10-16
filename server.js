@@ -20,7 +20,10 @@ io.on("connection",(socket)=>{
     //enviar a todos menos al socket conectado
     socket.broadcast.emit("newUser");
     socket.emit("historico",historicoMensajes)
-    socket.on("borrar",data=>{historicoMensajes.length=0})
+    socket.on("borrar",data=>{
+      historicoMensajes.length=0;
+      historicoMensajes.push(data);
+      io.sockets.emit("historico",historicoMensajes)})
     socket.on("message",data=>{
         console.log(data);
         historicoMensajes.push(data);

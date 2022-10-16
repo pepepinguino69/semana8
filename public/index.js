@@ -31,7 +31,7 @@ const borrar=document.getElementById("borrar");
 borrar.addEventListener('click',(e)=>{socketClient.emit("borrar","!!**!!")})
 socketClient.on("historico",(data)=>{
     let elementos="";
-    data.forEach(item=>{
+    data.reverse().forEach(item=>{
         elementos = elementos + `<p><strong>${item.username}</strong>: ${item.message}</p>`;
     });
     messageContainer.innerHTML = elementos;
