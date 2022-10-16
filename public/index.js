@@ -12,13 +12,13 @@ Swal.fire({
     text:"bienvenido, ingresa tu usario",
     input:"text",
     allowOutsideClick:false
-}).then(respuesta=>{
+    }).then(respuesta=>{
     user = respuesta.value;
-   socketClient.emit("message",{username:user,message:user+" se ha unido"})
+   socketClient.emit("message",{username:"System",message:user+": se ha unido"})
   
   
   
-});
+})};
 
 const campo = document.getElementById("messageField")
 
