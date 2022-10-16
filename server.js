@@ -18,7 +18,7 @@ const historicoMensajes = [];
 io.on("connection",(socket)=>{
     console.log("nuevo usuario conectado", socket.id);
     //enviar a todos menos al socket conectado
-    socket.broadcast.emit("newUser",socket.id);
+    io.sockets.emit("newUser","a new user has joined";
     socket.emit("historico",historicoMensajes)
     socket.on("borrar",data=>{
       historicoMensajes.length=0;
