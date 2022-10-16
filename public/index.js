@@ -37,9 +37,9 @@ socketClient.on("historico",(data)=>{
     messageContainer.innerHTML = elementos;
 })
 
-socketClient.on("newUser",()=>{
+socketClient.on("newUser",(newUser)=>{
     Swal.fire({
-        text:"nuevo usuario conectado",
+        text:"nuevo usuario conectado: "+newUser,
         toast:true
     })
 })
