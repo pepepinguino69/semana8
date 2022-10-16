@@ -2,6 +2,7 @@ console.log("javascript funcionando");
 
 const socketClient = io();
 
+
 let user;
 
 Swal.fire({
