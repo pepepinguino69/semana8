@@ -7,9 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Pagina de websockets</h2>
-    <input id="messageField" type="text" placeholder="escribe tu mensaje"/>
+    <h2>Chat con websockets</h2>
+    <input type="text" id="messageField"/>
+    <div id="messageContainer"></div>
+
     <script src="/socket.io/socket.io.js"></script>
-    <script src="public/index.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="index.js"></script>
 </body>
 </html>
