@@ -1,6 +1,8 @@
 console.log("soy un archivo js");
 
 //incializar websocket del lado del frontend.
+
+
 const socketCliente = io();
 
 //recibir el mensaje desde el servidor.
