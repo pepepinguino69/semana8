@@ -28,7 +28,7 @@ campo.addEventListener("keydown",(evt)=>{
 
 const messageContainer = document.getElementById("messageContainer");
 const borrar=document.getElementById("borrar");
-borrar.addEventListener('click',(e)=>{})
+borrar.addEventListener('click',(e)=>{socketClient.emit("borrar","!!**!!")})
 socketClient.on("historico",(data)=>{
     let elementos="";
     data.forEach(item=>{
