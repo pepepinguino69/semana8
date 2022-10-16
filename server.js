@@ -1,13 +1,26 @@
 
 const express = require("express");
-const productsRouter = require("./routes/routes");
-const {Server}=require("server.io")
+const {Server} = require("socket.io");
+
 const app = express();
 
-app.listen(8080,()=>console.log("server listening on port 8080"));
+//crea el servidor de express y lo coloca a funcionar en un puerto
+const server = app.listen(8080,()=>console.log("listening on port 8080"));
 
-const path = require("path");
-const VIEWS = path.join(__dirname, "views");
-app.use(express.static(__dirname,'public'))
-app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+//io: servidor del websocket
+const io = new Server(server); //conectamos con el servidor principal.
+
+app.use(express.static(__dirname+"/public"));
+
+//crear la conexion del socket del cliente con el socket del servidor.
+io.on("connection",(socket)=>{
+    console.log("nuevo socket o cliente conectado", socket.id);
+    //enviar informacion del lado del servidor al cliente.
+    socket.emit("messageFromServer","se ha conectado exitosamente")
+
+    socket.on("letras",(dataDelCliente)=>{
+        console.log(dataDelCliente)
+            //emitir informacion para todos los sockets conectados
+            io.sockets.emit("messages",dataDelCliente);
+    })
+})
