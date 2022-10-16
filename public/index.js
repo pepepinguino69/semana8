@@ -12,11 +12,7 @@ Swal.fire({
     allowOutsideClick:false
 }).then(respuesta=>{
     // console.log(respuesta)
-    user = respuesta.value;
-  socketClient.emit("message",{
-            username:user,
-            message:campo.value
-        })
+    //user = respuesta.value;socketClient.emit("message",{username:user,message:user+" se ha unido"})
   
   
   
