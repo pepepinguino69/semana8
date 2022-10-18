@@ -1,14 +1,14 @@
 console.log("javascript funcionando");
+import { io } from "socket.io-client"
 
-const socketClient = io();
-
+const socketClient = io("wss://striped-quark-nickel.glitch.me:8080");
 
 
 
 const campo = document.getElementById("form")
 socketClient.emit("firstConnection",{username:"System"})  
 campo.addEventListener('click',(evt)=>{evt.preventDefault();if(title.value!=""&&price.value!=""&&url.value!=""){
-        let body={
+        const body={
           title:title.value,
           price:price.value,
           url:url.value};
