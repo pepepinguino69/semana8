@@ -1,8 +1,6 @@
 console.log("javascript funcionando");
-import { io } from "socket.io-client"
 
-const socketClient = io("wss://striped-quark-nickel.glitch.me:8080");
-
+const socketClient = io()
 
 
 const campo = document.getElementById("form")

@@ -20,7 +20,7 @@ app.use(express.static(__dirname+"/public"));
 const historicoMensajes = [];
 
 io.on("connection",(socket)=>{
-    socket.emit("firstConnection",data=>{
+    socket.on("firstConnection",data=>{
       myInstance.getAll().then((prods) => io.sockets.emit("historico",prods))
 })
     
