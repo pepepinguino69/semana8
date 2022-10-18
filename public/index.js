@@ -28,7 +28,7 @@ campo.addEventListener("keydown",(evt)=>{
         socketClient.emit("message",{
             username:user+"-"+socketClient.id,
             message:campo.value
-    }
+    })}
 })
 
 const messageContainer = document.getElementById("messageContainer");
