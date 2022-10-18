@@ -12,6 +12,8 @@ const server = app.listen(PORT, ()=>console.log(`listening on port ${PORT}`));
 
 //servidor de websocket y lo conectamos con el servidor de express
 const io = new Server(server);
+const  Contenedor  = require('./Contenedor.js').Contenedor
+const myInstance = new Contenedor("productos.txt");
 
 app.use(express.static(__dirname+"/public"));
 
