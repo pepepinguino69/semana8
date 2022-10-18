@@ -20,14 +20,10 @@ app.use(express.static(__dirname+"/public"));
 const historicoMensajes = [];
 
 io.on("connection",(socket)=>{
-    console.log("nuevo usuario conectado", socket.id);
-    //enviar a todos menos al socket conectado
-    //io.sockets.emit("newUser","a new user has joined");
-    socket.emit("historico",historicoMensajes)
-    socket.on("borrar",data=>{
-      historicoMensajes.length=0;
-      historicoMensajes.push(data);
-      io.sockets.emit("historico",historicoMensajes)})
+    socket.emit("firstConnection",data=>{
+      myInstance.getAll().then((prods) => io.sockets.emit("historico",prods))
+})
+    
     socket.on("message",data=>{myInstance.save(data);
       myInstance.getAll().then((prods) => io.sockets.emit("historico",prods))
        

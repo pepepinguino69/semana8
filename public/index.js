@@ -23,7 +23,7 @@ Swal.fire({
 user ="System"
 
 const campo = document.getElementById("form")
-
+socketClient.emit("firstConnection",{username:"System"})  
 campo.addEventListener('click',(evt)=>{evt.preventDefault();
         let body={
           title:title.value,
