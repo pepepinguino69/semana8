@@ -24,13 +24,11 @@ user ="System"
 
 const campo = document.getElementById("form")
 
-campo.addEventListener('click',(evt)=>{evt.preventDefault();
-{
-        socketClient.emit("message",{
-            title:title.value,
+campo.addEventListener('click',(evt)=>{evt.preventDefault();let body={title:title.value,
             price:price.value,
-          url:url.value
-    })}
+          url:url.value};
+
+        socketClient.emit("message",body)
 })
 
 const messageContainer = document.getElementById("messageContainer");
