@@ -24,8 +24,11 @@ io.on("connection",(socket)=>{
       myInstance.getAll().then((prods) => io.sockets.emit("historico",prods))
 })
     
-    socket.on("message",data=>{myInstance.save(data);
-      myInstance.getAll().then((prods) => {io.sockets.emit("historico",prods);prods.push(data);io.sockets.emit("historico",prods)})
+    socket.on("message",data=>{let newData=myInstance.save(data);io.sockets.emit("historico",newData.reverse())
+    
+  
+    //socket.on("message",data=>{myInstance.save(data);
+    //  myInstance.getAll().then((prods) => {io.sockets.emit("historico",prods);prods.push(data);io.sockets.emit("historico",prods)})
        
     })
 })

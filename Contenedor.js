@@ -13,7 +13,7 @@ const Contenedor = class Contenedor {
         }
         data.push(newObject);
         await fs.writeFile(this.path, JSON.stringify(data), "utf8");
-        return await newObject.id;
+        return await data;
     };
 
     async getAll(){
