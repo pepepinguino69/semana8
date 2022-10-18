@@ -29,7 +29,7 @@ io.on("connection",(socket)=>{
     socket.on("message",data=>{
         console.log(data);
       
-        historicoMensajes.push(data['message']);
+        historicoMensajes.push(data);
         //enviar a todos
         io.sockets.emit("historico",historicoMensajes);
     })
