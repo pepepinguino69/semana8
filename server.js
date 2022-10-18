@@ -29,9 +29,9 @@ io.on("connection",(socket)=>{
       historicoMensajes.push(data);
       io.sockets.emit("historico",historicoMensajes)})
     socket.on("message",data=>{
-      myInstance.getAll().then((prods) => 
-        
+      //myInstance.getAll().then((prods) => io.sockets.emit("historico",prods))
+        let arr=[data]
         //enviar a todos
-        io.sockets.emit("historico",prods))
+        io.sockets.emit("historico",arr)
     })
 })
