@@ -15,7 +15,28 @@
       borrar chat
   </button>
     </div>
-    <input type="text" id="messageField"/>
+  <form autocomplete="off" id="form">
+  
+     
+     <div> 
+      <label>Nombre del Producto</label>
+       <input id="title" type="text" name="title">
+    </div>
+     <div>
+       <label>Precio del producto</label>
+       <input id="price" type="text" name="price">
+     </div>
+     <div>
+       <label>URL de la foto</label>
+       <input id="url" type="text" name="url">
+     </div>
+    
+     
+     
+     <button type="submit">Crear Producto</button>
+   </form>
+     
+
     <div id="messageContainer"></div> 
 
     <script src="/socket.io/socket.io.js"></script>

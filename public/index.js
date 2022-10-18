@@ -22,13 +22,12 @@ Swal.fire({
 })};
 user ="System"
 
-const campo = document.getElementById("messageField")
+const campo = document.getElementById("form")
 
-campo.addEventListener("keydown",(evt)=>{
-    console.log(evt.key)
-    if(evt.key === "Enter"){
+campo.addEventListener("click",(evt)=>{
+{
         socketClient.emit("message",{
-            username:user,
+            title:ti,
             message:campo.value
     })}
 })
