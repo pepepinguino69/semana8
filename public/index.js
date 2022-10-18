@@ -24,14 +24,18 @@ user ="System"
 
 const campo = document.getElementById("form")
 socketClient.emit("firstConnection",{username:"System"})  
-campo.addEventListener('click',(evt)=>{evt.preventDefault();
+campo.addEventListener('click',(evt)=>{evt.preventDefault();if(title.value!=""&&price.value!=""||url.value!=""){
         let body={
           title:title.value,
           price:price.value,
           url:url.value};
+          title.value="";
+          price.value="" ;
+          url.value=""                         
+                                       
 
         socketClient.emit("message",body)
-})
+}})
 
 const messageContainer = document.getElementById("messageContainer");
 const borrar=document.getElementById("borrar");
