@@ -28,10 +28,8 @@ io.on("connection",(socket)=>{
       historicoMensajes.length=0;
       historicoMensajes.push(data);
       io.sockets.emit("historico",historicoMensajes)})
-    socket.on("message",data=>{
-      //myInstance.getAll().then((prods) => io.sockets.emit("historico",prods))
-        let arr=[data]
-        //enviar a todos
-        io.sockets.emit("historico",arr)
+    socket.on("message",data=>{myInstance.save(data);
+      myInstance.getAll().then((prods) => io.sockets.emit("historico",prods))
+       
     })
 })
