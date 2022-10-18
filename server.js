@@ -25,7 +25,7 @@ io.on("connection",(socket)=>{
 })
     
     socket.on("message",data=>{myInstance.save(data);
-      myInstance.getAll().then((prods) => {io.sockets.emit("historico",prods.reverse())})
+      myInstance.getAll().then((prods) => {io.sockets.emit("historico",prods);prods.push(data)})
        
     })
 })
