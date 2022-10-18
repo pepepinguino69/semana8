@@ -37,7 +37,30 @@ const messageContainer = document.getElementById("messageContainer");
 const borrar=document.getElementById("borrar");
 borrar.addEventListener('click',(e)=>{socketClient.emit("borrar","!!**!!")})
 socketClient.on("historico",(data)=>{
-    let elementos="";
+    let elementos=`;
+      <table>
+        
+      
+      <thead>
+      
+    <th>ID</th>
+    <th>Title</th>
+    <th class="price">Price</th>
+    <th class="img">Image</th>
+          
+  </thead>
+      <tbody>
+        {{#each productos}}
+    <tr>
+      <td><a href="#">{{this.id}}</a></td>
+      <td>{{this.title}}</td>
+      <td class="price">{{this.price}}</td>
+      <td class="img"><img src="{{this.url}}"/></td>
+    </tr>
+        {{/each}}
+  </tbody>
+        </table>
+    </div>
     data.reverse().forEach(item=>{
         elementos = elementos + `<p><strong>${item.title}</strong>-${item.price}</p>`;
     });
