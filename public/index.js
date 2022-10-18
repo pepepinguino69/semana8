@@ -4,7 +4,7 @@ const socketClient = io();
 
 
 let user;
-newUser()
+//newUser()
 
 async function newUser(){
 Swal.fire({
@@ -13,12 +13,14 @@ Swal.fire({
     input:"text",
     allowOutsideClick:false
     }).then(respuesta=>{
-    user = respuesta.value;
+    //user = respuesta.value;
+  
    socketClient.emit("message",{username:"System",message:user+": se ha unido"})
   
   
   
 })};
+user ="System"
 
 const campo = document.getElementById("messageField")
 
@@ -26,7 +28,7 @@ campo.addEventListener("keydown",(evt)=>{
     console.log(evt.key)
     if(evt.key === "Enter"){
         socketClient.emit("message",{
-            username:user+"-"+socketClient.id,
+            username:user,
             message:campo.value
     })}
 })
