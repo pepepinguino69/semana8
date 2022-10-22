@@ -8,7 +8,7 @@ campoMsg.addEventListener("keydown",(evt)=>{
         let msg={
             username:user,
             message:campoMsg.value
-        };socketClient.emit("messageChat",msg);alert(msg);campoMsg.value=""
+        };socketClient.emit("messageChat",msg);campoMsg.value=""
     }
 })
 

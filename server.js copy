@@ -33,7 +33,8 @@ io.on("connection",(socket)=>{
   socket.on("messageChat",msgs=>{historicoMensajes.push(msgs);myChatInstance.save(msgs);
      myChatInstance.getAll().then((historicoMensajes) => {io.sockets.emit("historico",historicoMensajes);historicoMensajes.push(msgs);io.sockets.emit("historico",historicoMensajes)})
        
-        console.log(msgs);
+       
+        
         //historicoMensajes.push(msgs);
       
         //enviar a todos
@@ -41,12 +42,7 @@ io.on("connection",(socket)=>{
        myInstance3.save({historicoMensajes[0]})
       
     })
-  socket.on("newUser",data=>{
-        console.log(data);
-        historicoMensajes.push(data);
-        //enviar a todos
-        io.sockets.emit("historico",historicoMensajes);
-    })
+  
   
     socket.on("message",data=>{myInstance.save(data);
      myInstance.getAll().then((prods) => {io.sockets.emit("productos",prods);prods.push(data);io.sockets.emit("productos",prods)})

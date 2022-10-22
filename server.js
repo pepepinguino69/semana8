@@ -24,11 +24,11 @@ const historicoMensajes = [];
 io.on("connection",(socket)=>{
     
     
-  socket.on("messageChat",msgs=>{historicoMensajes.push(msgs);console.log(msgs);myChatInstance.save(msgs);
+  socket.on("messageChat",msgs=>{historicoMensajes.push(msgs);console.log(msgs);console.log(msgs);myChatInstance.save(msgs);
      myChatInstance.getAll().then((historicoMensajes) => {io.sockets.emit("historico",historicoMensajes);historicoMensajes.push(msgs);io.sockets.emit("historico",historicoMensajes)})
        
         //console.log(msgs);
-        //historicoMensajes.push(msgs);
+        //historicoMensajes.push(msgs);console.log(msgs)
       
         //enviar a todos
        io.sockets.emit("historico",historicoMensajes);
