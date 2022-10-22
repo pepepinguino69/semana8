@@ -14,7 +14,8 @@ const server = app.listen(PORT, ()=>console.log(`listening on port ${PORT}`));
 const io = new Server(server);
 const  Contenedor  = require('./Contenedor.js').Contenedor
 
-const myChatInstance = new Contenedor("chat.txt");
+const myChatInstance = new Contenedor("chat2.txt");
+myChatInstance.save({id:5,prueba:"Ariel"})
 
 app.use(express.static(__dirname+"/public"));
 
