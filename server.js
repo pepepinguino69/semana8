@@ -14,6 +14,7 @@ const server = app.listen(PORT, ()=>console.log(`listening on port ${PORT}`));
 const io = new Server(server);
 const  Contenedor  = require('./Contenedor.js').Contenedor
 const myInstance = new Contenedor("productos.txt");
+const myChatInstance = new Contenedor("chat.txt");
 
 app.use(express.static(__dirname+"/public"));
 
@@ -25,11 +26,15 @@ io.on("connection",(socket)=>{
 })
     
     socket.emit("historico",historicoMensajes)
-    socket.on("messageChat",data=>{
+    socket.on("messageChat",data=>{myChatInstance.save(data);
+     myInstance.getAll().then((prods) => {io.sockets.emit("historico",historicoMensajes);historicoMensajes.push(data);io.sockets.emit("historico",historicoMensajes)})
+       
         console.log(data);
-        historicoMensajes.push(data);
+        //historicoMensajes.push(data);
+      
         //enviar a todos
-        io.sockets.emit("historico",historicoMensajes);
+        //io.sockets.emit("historico",historicoMensajes);
+      
     })
   socket.on("newUser",data=>{
         console.log(data);
