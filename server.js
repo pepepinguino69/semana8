@@ -22,14 +22,9 @@ app.use(express.static(__dirname+"/public"));
 const historicoMensajes = [];
 
 io.on("connection",(socket)=>{
-    socket.on("firstConnection",data=>{
-    myChatInstance.getAll().then((msgs) => io.sockets.emit("historico",msgs));
-
     
-    //socket.emit("historico",historicoMensajes)
-    })
     
-  socket.on("messageChat",msgs=>{historicoMensajes.push(msgs);myChatInstance.save(msgs);
+  socket.on("messageChat",msgs=>{historicoMensajes.push(msgs);console.log(msgs);myChatInstance.save(msgs);
      myChatInstance.getAll().then((historicoMensajes) => {io.sockets.emit("historico",historicoMensajes);historicoMensajes.push(msgs);io.sockets.emit("historico",historicoMensajes)})
        
         //console.log(msgs);
