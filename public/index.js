@@ -8,7 +8,7 @@ campoMsg.addEventListener("keydown",(evt)=>{
         let msg={
             username:user,
             message:campoMsg.value
-        };socketClient.emit("messageChat",msg);campoMsg.value=""
+        };socketClient.emit("messageChat",msg);alert(msg);campoMsg.value=""
     }
 })
 
@@ -23,10 +23,10 @@ socketClient.on("historico",(data)=>{
     });
     messageContainer.innerHTML = elementos;
 })
-socketClient.on("historico2",(data)=>{
+socketClient.on("historico",(data)=>{
     let elementos="";
     data.reverse().forEach(item=>{
-        elementos = elementos + `<p><strong>POR ACA</p>`;
+        elementos = elementos + `<p><strong></p>`;
     });
     messageContainer.innerHTML = elementos;
 })
@@ -41,9 +41,43 @@ socketClient.on("newUser",(newUser)=>{
 
 const campo = document.getElementById("form")
 socketClient.emit("firstConnection",{username:"System"})  
+campo.addEventListener('click',(evt)=>{evt.preventDefault();if(title.value!=""&&price.value!=""&&url.value!=""){
+        const body={
+          title:title.value,
+          price:price.value,
+          url:url.value};
+          title.value="";
+          price.value="" ;
+          url.value=""                         
+                                       
 
+        socketClient.emit("message",body)
+}})
 
 const productContainer = document.getElementById("productContainer");
+socketClient.on("productos",(data)=>{
+    let elementos=`
+      <table>
+        
+      
+      <thead>
+      
+    <th>ID</th>
+    <th>Title</th>
+    <th class="price">Price</th>
+    <th class="img">Image</th>
+          
+  </thead>
+      <tbody>`
+    data.forEach(item=>{
+        elementos = elementos + ` <td><a href="#">${item.id}</a></td>
+      <td>${item.title}</td>
+      <td class="price">${item.price}</td>
+      <td class="img"><img src="${item.url}"/></td>
+    </tr>`
+    });
+    productContainer.innerHTML = elementos;
+})
 
 socketClient.on("newUser",(newUser)=>{
     Swal.fire({
