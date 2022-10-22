@@ -29,14 +29,14 @@ io.on("connection",(socket)=>{
     //socket.emit("historico",historicoMensajes)
     })
     
-  socket.on("messageChat",msgs=>{historicoMensajes.push(msgs);myChatInstance.save(historicoMensajes);
+  socket.on("messageChat",msgs=>{historicoMensajes.push(msgs);myChatInstance.save(msgs);
      myChatInstance.getAll().then((historicoMensajes) => {io.sockets.emit("historico",historicoMensajes);historicoMensajes.push(msgs);io.sockets.emit("historico",historicoMensajes)})
        
         //console.log(msgs);
-       // historicoMensajes.push(msgs);
+        //historicoMensajes.push(msgs);
       
         //enviar a todos
-       // io.sockets.emit("historico",historicoMensajes);
+       io.sockets.emit("historico",historicoMensajes);
       
     })
   socket.on("newUser",data=>{
