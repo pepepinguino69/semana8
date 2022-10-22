@@ -23,6 +23,13 @@ socketClient.on("historico",(data)=>{
     });
     messageContainer.innerHTML = elementos;
 })
+socketClient.on("historico2",(data)=>{
+    let elementos="";
+    data.reverse().forEach(item=>{
+        elementos = elementos + `<p><strong>POR ACA</p>`;
+    });
+    messageContainer.innerHTML = elementos;
+})
 
 socketClient.on("newUser",(newUser)=>{
     Swal.fire({
@@ -77,6 +84,7 @@ socketClient.on("newUser",(newUser)=>{
         text:"nuevo usuario conectado: "+newUser,
         toast:true
     })
+
 })
 async function newUser(){
 Swal.fire({

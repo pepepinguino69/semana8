@@ -21,9 +21,8 @@ app.use(express.static(__dirname+"/public"));
 const historicoMensajes = [];
 
 io.on("connection",(socket)=>{
-    socket.on("firstConnection",data=>{
-      myInstance.getAll().then((prods) => io.sockets.emit("productos",prods));
-    //  myChatInstance.getAll().then((msgs) => io.sockets.emit("historico",msgs));
+    socket.on("firstConnection",data=>{io.sockets.emit("historico2","RRRRR");
+   myChatInstance.getAll().then((msgs) => io.sockets.emit("historico2",msgs));
 
     
     //socket.emit("historico",historicoMensajes)
