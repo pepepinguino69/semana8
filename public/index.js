@@ -1,17 +1,20 @@
 console.log("javascript funcionando");
 let user;
-const campo = document.getElementById("messageField")
+const campoMsg = document.getElementById("messageField")
 
-campo.addEventListener("keydown",(evt)=>{
+campoMsg.addEventListener("keydown",(evt)=>{
     console.log(evt.key)
     if(evt.key === "Enter"){
-        socketClient.emit("message",{
+        socketClient.emit("messageChat",{
             username:user,
-            message:campo.value
-        });campo.value=""
+            message:campoMsg.value
+        });campoMsg.value=""
     }
 })
 
+
+newUser()
+const socketClient = io()
 const messageContainer = document.getElementById("messageContainer");
 socketClient.on("historico",(data)=>{
     let elementos="";
@@ -27,8 +30,6 @@ socketClient.on("newUser",(newUser)=>{
         toast:true
     })
 })
-newUser()
-const socketClient = io()
 
 
 const campo = document.getElementById("form")
@@ -46,7 +47,7 @@ campo.addEventListener('click',(evt)=>{evt.preventDefault();if(title.value!=""&&
         socketClient.emit("message",body)
 }})
 
-const messageContainer = document.getElementById("productContainer");
+const productContainer = document.getElementById("productContainer");
 const borrar=document.getElementById("borrar");
 socketClient.on("productos",(data)=>{
     let elementos=`
@@ -69,7 +70,7 @@ socketClient.on("productos",(data)=>{
       <td class="img"><img src="${item.url}"/></td>
     </tr>`
     });
-    messageContainer.innerHTML = elementos;
+    productContainer.innerHTML = elementos;
 })
 
 socketClient.on("newUser",(newUser)=>{
