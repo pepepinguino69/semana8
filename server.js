@@ -27,7 +27,7 @@ io.on("connection",(socket)=>{
     
     socket.emit("historico",historicoMensajes)
     socket.on("messageChat",data=>{myChatInstance.save(data);
-     myInstance.getAll().then((prods) => {io.sockets.emit("historico",historicoMensajes);historicoMensajes.push(data);io.sockets.emit("historico",historicoMensajes)})
+     myChatInstance.getAll().then((data) => {io.sockets.emit("historico",historicoMensajes);historicoMensajes.push(data);io.sockets.emit("historico",historicoMensajes)})
        
         console.log(data);
         //historicoMensajes.push(data);
