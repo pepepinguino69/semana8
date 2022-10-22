@@ -1,4 +1,32 @@
 console.log("javascript funcionando");
+let user;
+const campo = document.getElementById("messageField")
+
+campo.addEventListener("keydown",(evt)=>{
+    console.log(evt.key)
+    if(evt.key === "Enter"){
+        socketClient.emit("message",{
+            username:user,
+            message:campo.value
+        });campo.value=""
+    }
+})
+
+const messageContainer = document.getElementById("messageContainer");
+socketClient.on("historico",(data)=>{
+    let elementos="";
+    data.reverse().forEach(item=>{
+        elementos = elementos + `<p><strong>${item.username}</strong>:${item.message}</p>`;
+    });
+    messageContainer.innerHTML = elementos;
+})
+
+socketClient.on("newUser",(newUser)=>{
+    Swal.fire({
+        text:"nuevo usuario conectado: "+newUser,
+        toast:true
+    })
+})
 newUser()
 const socketClient = io()
 
@@ -20,7 +48,7 @@ campo.addEventListener('click',(evt)=>{evt.preventDefault();if(title.value!=""&&
 
 const messageContainer = document.getElementById("productContainer");
 const borrar=document.getElementById("borrar");
-socketClient.on("historico",(data)=>{
+socketClient.on("productos",(data)=>{
     let elementos=`
       <table>
         

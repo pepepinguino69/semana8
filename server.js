@@ -28,7 +28,7 @@ io.on("connection",(socket)=>{
     
   
     socket.on("message",data=>{myInstance.save(data);
-     myInstance.getAll().then((prods) => {io.sockets.emit("historico",prods);prods.push(data);io.sockets.emit("historico",prods)})
+     myInstance.getAll().then((prods) => {io.sockets.emit("productos",prods);prods.push(data);io.sockets.emit("productos",prods)})
        
     })
 })
