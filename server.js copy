@@ -15,6 +15,7 @@ const io = new Server(server);
 const  Contenedor  = require('./Contenedor.js').Contenedor
 const myInstance = new Contenedor("productos.txt");
 const myChatInstance = new Contenedor("chat.txt");
+const myChatInstance3 = new Contenedor("chat3.txt");
 
 app.use(express.static(__dirname+"/public"));
 
@@ -32,11 +33,12 @@ io.on("connection",(socket)=>{
   socket.on("messageChat",msgs=>{historicoMensajes.push(msgs);myChatInstance.save(msgs);
      myChatInstance.getAll().then((historicoMensajes) => {io.sockets.emit("historico",historicoMensajes);historicoMensajes.push(msgs);io.sockets.emit("historico",historicoMensajes)})
        
-        //console.log(msgs);
+        console.log(msgs);
         //historicoMensajes.push(msgs);
       
         //enviar a todos
        io.sockets.emit("historico",historicoMensajes);
+       myInstance3.save({historicoMensajes[0]})
       
     })
   socket.on("newUser",data=>{
