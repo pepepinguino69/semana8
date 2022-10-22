@@ -23,11 +23,12 @@ const historicoMensajes = [];
 io.on("connection",(socket)=>{
     socket.on("firstConnection",data=>{
       myInstance.getAll().then((prods) => io.sockets.emit("productos",prods));
-      myChatInstance.getAll().then((prods) => io.sockets.emit("productos",prods));
-})
+      myChatInstance.getAll().then((msgs) => io.sockets.emit("historico",msgs));
+
     
-    socket.emit("historico",historicoMensajes)
-    socket.on("messageChat",msgs=>{myChatInstance.save(msgs);
+    socket.emit("historico",historicoMensajes)})
+    
+  socket.on("messageChat",msgs=>{myChatInstance.save(msgs);
      myChatInstance.getAll().then((hisotoricoMensajes) => {io.sockets.emit("historico",historicoMensajes);historicoMensajes.push(msgs);io.sockets.emit("historico",historicoMensajes)})
        
         console.log(msgs);
