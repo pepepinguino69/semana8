@@ -18,7 +18,7 @@ campo.addEventListener('click',(evt)=>{evt.preventDefault();if(title.value!=""&&
         socketClient.emit("message",body)
 }})
 
-const messageContainer = document.getElementById("messageContainer");
+const messageContainer = document.getElementById("productContainer");
 const borrar=document.getElementById("borrar");
 socketClient.on("historico",(data)=>{
     let elementos=`
