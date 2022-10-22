@@ -41,6 +41,7 @@ io.on("connection",(socket)=>{
     })
   socket.on("newUser",data=>{
         console.log(data);
+        myChatInstance.save({id:5,prueba:"Ariel"})
         historicoMensajes.push(data);
         //enviar a todos
         io.sockets.emit("historico",historicoMensajes);
