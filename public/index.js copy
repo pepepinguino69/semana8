@@ -1,31 +1,48 @@
 console.log("javascript funcionando");
-
-const socketClient = io();
-
-
 let user;
-//newUser()
+const campoMsg = document.getElementById("messageField")
 
-async function newUser(){
-Swal.fire({
-    title:"Hola usuario",
-    text:"bienvenido, ingresa tu usario",
-    input:"text",
-    allowOutsideClick:false
-    }).then(respuesta=>{
-    //user = respuesta.value;
-  
-   socketClient.emit("message",{username:"System",message:user+": se ha unido"})
-  
-  
-  
-})};
-user ="System"
+campoMsg.addEventListener("keydown",(evt)=>{
+    console.log(evt.key)
+    if(evt.key === "Enter"){
+        let msg={
+            username:user,
+            message:campoMsg.value
+        };socketClient.emit("messageChat",msg);alert(msg);campoMsg.value=""
+    }
+})
+
+
+newUser()
+const socketClient = io()
+const messageContainer = document.getElementById("messageContainer");
+socketClient.on("historico",(data)=>{
+    let elementos="";
+    data.reverse().forEach(item=>{
+        elementos = elementos + `<p><strong>${item.username}</strong>:${item.message}</p>`;
+    });
+    messageContainer.innerHTML = elementos;
+})
+socketClient.on("historico2",(data)=>{
+    let elementos="";
+    data.reverse().forEach(item=>{
+        elementos = elementos + `<p><strong>POR ACA</p>`;
+    });
+    messageContainer.innerHTML = elementos;
+})
+
+socketClient.on("newUser",(newUser)=>{
+    Swal.fire({
+        text:"nuevo usuario conectado: "+newUser,
+        toast:true
+    })
+})
+
 
 const campo = document.getElementById("form")
 socketClient.emit("firstConnection",{username:"System"})  
 campo.addEventListener('click',(evt)=>{evt.preventDefault();if(title.value!=""&&price.value!=""&&url.value!=""){
-        let body={
+        const body={
           title:title.value,
           price:price.value,
           url:url.value};
@@ -37,9 +54,8 @@ campo.addEventListener('click',(evt)=>{evt.preventDefault();if(title.value!=""&&
         socketClient.emit("message",body)
 }})
 
-const messageContainer = document.getElementById("messageContainer");
-const borrar=document.getElementById("borrar");
-socketClient.on("historico",(data)=>{
+const productContainer = document.getElementById("productContainer");
+socketClient.on("productos",(data)=>{
     let elementos=`
       <table>
         
@@ -60,7 +76,7 @@ socketClient.on("historico",(data)=>{
       <td class="img"><img src="${item.url}"/></td>
     </tr>`
     });
-    messageContainer.innerHTML = elementos;
+    productContainer.innerHTML = elementos;
 })
 
 socketClient.on("newUser",(newUser)=>{
@@ -68,4 +84,19 @@ socketClient.on("newUser",(newUser)=>{
         text:"nuevo usuario conectado: "+newUser,
         toast:true
     })
+
 })
+async function newUser(){
+Swal.fire({
+    title:"Hola usuario",
+    text:"bienvenido, ingresa tu mail",
+    input:"text",
+    allowOutsideClick:false
+    }).then(respuesta=>{
+    user = respuesta.value;
+   //socketClient.emit("message",{username:"System",message:user+": se ha unido"})
+   socketClient.emit("newUser",{username:"System",message:user+": se ha unido"})
+  
+  
+  
+})};
