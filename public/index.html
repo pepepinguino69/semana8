@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
   <style>
-    .chatContainer{height:5rem;border:black 1px solid;margin-top:2rem}
+    .chatContainer{height:15rem;border:black 1px solid;margin-top:2rem;overflow-y:scroll}
+    
   
   
   </style>
@@ -35,10 +36,14 @@
      <button type="submit">Crear Producto</button>
    </form>
   
-     
-
+  <div>
+       Envie mensajes
+  </div>
+       
+  
+    <input type="text" id="messageField"/>
     <div id="messageContainer" class="chatContainer">zona</div> 
-  <div id="productContainer"></div> 
+  <div id="productContainer" class="chatContainer"></div> 
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
