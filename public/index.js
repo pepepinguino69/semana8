@@ -23,13 +23,7 @@ socketClient.on("historico",(data)=>{
     });
     messageContainer.innerHTML = elementos;
 })
-socketClient.on("historico",(data)=>{
-    let elementos="";
-    data.reverse().forEach(item=>{
-        elementos = elementos + `<p><strong>${item.username}</strong>:${item.message}</p>`;
-    });
-    messageContainer.innerHTML = elementos;
-})
+
 
 socketClient.on("newUser",(newUser)=>{
     Swal.fire({
