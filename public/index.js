@@ -48,7 +48,6 @@ campo.addEventListener('click',(evt)=>{evt.preventDefault();if(title.value!=""&&
 }})
 
 const productContainer = document.getElementById("productContainer");
-const borrar=document.getElementById("borrar");
 socketClient.on("productos",(data)=>{
     let elementos=`
       <table>
