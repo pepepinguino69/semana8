@@ -31,6 +31,12 @@ io.on("connection",(socket)=>{
         //enviar a todos
         io.sockets.emit("historico",historicoMensajes);
     })
+  socket.on("newUser",data=>{
+        console.log(data);
+        historicoMensajes.push(data);
+        //enviar a todos
+        io.sockets.emit("historico",historicoMensajes);
+    })
   
     socket.on("message",data=>{myInstance.save(data);
      myInstance.getAll().then((prods) => {io.sockets.emit("productos",prods);prods.push(data);io.sockets.emit("productos",prods)})

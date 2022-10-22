@@ -88,6 +88,7 @@ Swal.fire({
     }).then(respuesta=>{
     user = respuesta.value;
    socketClient.emit("message",{username:"System",message:user+": se ha unido"})
+   socketClient.emit("newUser",{username:"System",message:user+": se ha unido"})
   
   
   
