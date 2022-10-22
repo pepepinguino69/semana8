@@ -1,5 +1,5 @@
 console.log("javascript funcionando");
-
+newUser()
 const socketClient = io()
 
 
@@ -50,3 +50,16 @@ socketClient.on("newUser",(newUser)=>{
         toast:true
     })
 })
+async function newUser(){
+Swal.fire({
+    title:"Hola usuario",
+    text:"bienvenido, ingresa tu mail",
+    input:"text",
+    allowOutsideClick:false
+    }).then(respuesta=>{
+    user = respuesta.value;
+   socketClient.emit("message",{username:"System",message:user+": se ha unido"})
+  
+  
+  
+})};
