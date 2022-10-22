@@ -5,10 +5,10 @@ const campoMsg = document.getElementById("messageField")
 campoMsg.addEventListener("keydown",(evt)=>{
     console.log(evt.key)
     if(evt.key === "Enter"){
-        socketClient.emit("messageChat",{
+        let msg={
             username:user,
             message:campoMsg.value
-        });campoMsg.value=""
+        };socketClient.emit("messageChat",msg);alert(msg);campoMsg.value=""
     }
 })
 
