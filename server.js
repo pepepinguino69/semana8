@@ -26,10 +26,10 @@ io.on("connection",(socket)=>{
 })
     
     socket.emit("historico",historicoMensajes)
-    socket.on("messageChat",data=>{myChatInstance.save(data);
-     myChatInstance.getAll().then((data) => {io.sockets.emit("historico",historicoMensajes);historicoMensajes.push(data);io.sockets.emit("historico",historicoMensajes)})
+    socket.on("messageChat",msgs=>{myChatInstance.save(msgs);
+     myChatInstance.getAll().then((msgs) => {io.sockets.emit("historico",historicoMensajes);historicoMensajes.push(msgs);io.sockets.emit("historico",historicoMensajes)})
        
-        console.log(data);
+        console.log(msgs);
         //historicoMensajes.push(data);
       
         //enviar a todos
