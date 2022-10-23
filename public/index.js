@@ -7,7 +7,7 @@ campoMsg.addEventListener("keydown",(evt)=>{
     if(evt.key === "Enter"){
         let msg={
             username:user,
-            message:campoMsg.value
+            message:campoMsg.value,
             timeStamp:formatFecha(Date.now())
         };socketClient.emit("messageChat",msg);alert(msg);campoMsg.value=""
     }
@@ -105,7 +105,7 @@ let dia=addZero(fecha.getDate())
 let hora=addZero(fecha.getHours())	
 let minutos=addZero(fecha.getMinutes())
 let segundos=addZero(fecha.getSeconds())
-return dia+"/"+mes+"/"+"ano+"-"+"hora"+":"+minutos+":"+segundos
+return dia+"/"+mes+"/"+"ano+"-"+"hora"+":"+minutos+":"+segundos}
 
 
 
