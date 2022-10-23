@@ -8,6 +8,7 @@ campoMsg.addEventListener("keydown",(evt)=>{
         let msg={
             username:user,
             message:campoMsg.value
+            timeStamp:formatFecha(Date.now())
         };socketClient.emit("messageChat",msg);alert(msg);campoMsg.value=""
     }
 })
@@ -90,7 +91,25 @@ Swal.fire({
     user = respuesta.value;
    //socketClient.emit("message",{username:"System",message:user+": se ha unido"})
    socketClient.emit("newUser",{username:"System",message:user+": se ha unido"})
-  
-  
-  
 })};
+
+function addZero(num){
+    num<10?addZtring="0":addString="";
+    return addString+num}
+
+function formatFecha(fecha){
+
+let ano=addZero(fecha.getFullYear());
+let mes=addZero(fecha.getMonth()+1)	
+let dia=addZero(fecha.getDate())
+let hora=addZero(fecha.getHours())	
+let minutos=addZero(fecha.getMinutes())
+let segundos=addZero(fecha.getSeconds())
+return dia+"/"+mes+"/"+"ano+"-"+"hora"+":"+minutos+":"+segundos
+
+
+
+
+
+}
+    
