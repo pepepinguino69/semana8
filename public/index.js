@@ -95,11 +95,18 @@ Swal.fire({
 })};
 
 function addZero(num){
-    let addString
-    num<10?addString="0":addString="";
-    return addString+num}
+    
+    if(num<10){num="0"+num}
+  
+    
+    return ""+num}
 
 function formatFecha(fecha){
+  
+fecha = new Date();
+
+  
+
 
 let ano=addZero(fecha.getFullYear());
 let mes=addZero(fecha.getMonth()+1)	
@@ -107,8 +114,7 @@ let dia=addZero(fecha.getDate())
 let hora=addZero(fecha.getHours())	
 let minutos=addZero(fecha.getMinutes())
 let segundos=addZero(fecha.getSeconds())
-return dia+"/"+mes+"/"+"ano+"-"+"hora+":"+minutos+":"+segundos}
-
+return dia+"/"+mes+"/"+ano+"-"+hora+":"+minutos+":"+segundos}
 
 
 
