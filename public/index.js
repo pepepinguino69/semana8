@@ -10,7 +10,7 @@ campoMsg.addEventListener("keydown",(evt)=>{
             username:user,
             message:campoMsg.value,
             timestamp:formatFecha(timeStamp)
-        };socketClient.emit("messageChat",msg);alert(msg.timestamp);campoMsg.value=""
+        };socketClient.emit("messageChat",msg);campoMsg.value=""
     }
 })
 
