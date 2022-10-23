@@ -5,10 +5,11 @@ const campoMsg = document.getElementById("messageField")
 campoMsg.addEventListener("keydown",(evt)=>{
     console.log(evt.key)
     if(evt.key === "Enter"){
+        let timeStamp=new Date();
         let msg={
             username:user,
             message:campoMsg.value,
-            timeStamp:formatFecha(Date.now())
+            timestamp:formatFecha(timeStamp)
         };socketClient.emit("messageChat",msg);alert(msg);campoMsg.value=""
     }
 })
