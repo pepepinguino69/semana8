@@ -21,7 +21,7 @@ const messageContainer = document.getElementById("messageContainer");
 socketClient.on("historico",(data)=>{
     let elementos="";
     data.reverse().forEach(item=>{
-        elementos = elementos + `<p><strong>${item.username}</strong>:${item.timestamp}:${item.message}</p>`;
+       elementos = elementos + `<p><strong><font color="green">${item.username}</font></strong>:<font color="blue">${item.timestamp}</font>:${item.message}</p>`;
     });
     messageContainer.innerHTML = elementos;
 })
