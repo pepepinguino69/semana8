@@ -94,7 +94,8 @@ Swal.fire({
 })};
 
 function addZero(num){
-    num<10?addZtring="0":addString="";
+    let addString
+    num<10?addString="0":addString="";
     return addString+num}
 
 function formatFecha(fecha){
